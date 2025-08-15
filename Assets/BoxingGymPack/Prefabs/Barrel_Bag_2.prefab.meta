@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ecbb5f920bd0d46489e6f801d24baad9
+timeCreated: 1493209809
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/Prefabs/Barrel_Bag_2.prefab
+  uploadId: 184861

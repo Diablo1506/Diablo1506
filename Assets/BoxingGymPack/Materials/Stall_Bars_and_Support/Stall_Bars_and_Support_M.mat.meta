@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3b87564212dfdcb40afa98846b0cd116
+timeCreated: 1494279734
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/Materials/Stall_Bars_and_Support/Stall_Bars_and_Support_M.mat
+  uploadId: 184861

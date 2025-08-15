@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8f67ba954612d79418d113a96e41ac76
+timeCreated: 1493295518
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/Prefabs/Boxing_Ring_With_Stairs_White.prefab
+  uploadId: 184861

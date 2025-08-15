@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 78f5a08b7ff0c734a93b8911991d3ba6
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bip001
+    100004: Bip001 Footsteps
+    100006: Bip001 Head
+    100008: Bip001 HeadNub
+    100010: Bip001 L Calf
+    100012: Bip001 L Clavicle
+    100014: Bip001 L Foot
+    100016: Bip001 L Forearm
+    100018: Bip001 L Hand
+    100020: Bip001 L Thigh
+    100022: Bip001 L Toe0
+    100024: Bip001 L Toe0Nub
+    100026: Bip001 L UpperArm
+    100028: Bip001 Neck
+    100030: Bip001 Pelvis
+    100032: Bip001 R Calf
+    100034: Bip001 R Clavicle
+    100036: Bip001 R Foot
+    100038: Bip001 R Forearm
+    100040: Bip001 R Hand
+    100042: Bip001 R Thigh
+    100044: Bip001 R Toe0
+    100046: Bip001 R Toe0Nub
+    100048: Bip001 R UpperArm
+    100050: Bip001 Spine
+    100052: Bip001 Spine1
+    100054: Bip001 Spine2
+    100056: Bone_Brow_C
+    100058: Bone_Brow_L
+    100060: Bone_Brow_R
+    100062: Bone_Eye_L
+    100064: Bone_Eye_R
+    100066: Bone_Jaw
+    100068: Bone_Lid_Down_L
+    100070: Bone_Lid_Down_R
+    100072: Bone_Lid_Up_L
+    100074: Bone_Lid_Up_R
+    100076: Bone_Lip_1
+    100078: Bone_Lip_2
+    100080: Bone_Lip_3
+    100082: Bone_Lip_4
+    100084: Border
+    100086: Border001
+    100088: Border002
+    100090: Border003
+    100092: Border006
+    100094: Border012
+    100096: Border013
+    100098: Border014
+    100100: Border015
+    100102: Border016
+    100104: boxeur
+    100106: Button_Brow_C
+    100108: Button_Brow_L
+    100110: Button_Brow_R
+    100112: Button_Emote
+    100114: Button_Eye_L
+    100116: Button_Eye_R
+    100118: Button_Jaw
+    100120: Button_Lid_L
+    100122: Button_Lid_R
+    100124: Button_Sync
+    100126: Rectangle001
+    100128: Text001
+    100130: Text002
+    100132: Text009
+    100134: Text010
+    100136: Text014
+    100138: Text015
+    100140: Text025
+    100142: Text027
+    100144: Text028
+    100146: Text029
+    100148: Text030
+    400000: //RootNode
+    400002: Bip001
+    400004: Bip001 Footsteps
+    400006: Bip001 Head
+    400008: Bip001 HeadNub
+    400010: Bip001 L Calf
+    400012: Bip001 L Clavicle
+    400014: Bip001 L Foot
+    400016: Bip001 L Forearm
+    400018: Bip001 L Hand
+    400020: Bip001 L Thigh
+    400022: Bip001 L Toe0
+    400024: Bip001 L Toe0Nub
+    400026: Bip001 L UpperArm
+    400028: Bip001 Neck
+    400030: Bip001 Pelvis
+    400032: Bip001 R Calf
+    400034: Bip001 R Clavicle
+    400036: Bip001 R Foot
+    400038: Bip001 R Forearm
+    400040: Bip001 R Hand
+    400042: Bip001 R Thigh
+    400044: Bip001 R Toe0
+    400046: Bip001 R Toe0Nub
+    400048: Bip001 R UpperArm
+    400050: Bip001 Spine
+    400052: Bip001 Spine1
+    400054: Bip001 Spine2
+    400056: Bone_Brow_C
+    400058: Bone_Brow_L
+    400060: Bone_Brow_R
+    400062: Bone_Eye_L
+    400064: Bone_Eye_R
+    400066: Bone_Jaw
+    400068: Bone_Lid_Down_L
+    400070: Bone_Lid_Down_R
+    400072: Bone_Lid_Up_L
+    400074: Bone_Lid_Up_R
+    400076: Bone_Lip_1
+    400078: Bone_Lip_2
+    400080: Bone_Lip_3
+    400082: Bone_Lip_4
+    400084: Border
+    400086: Border001
+    400088: Border002
+    400090: Border003
+    400092: Border006
+    400094: Border012
+    400096: Border013
+    400098: Border014
+    400100: Border015
+    400102: Border016
+    400104: boxeur
+    400106: Button_Brow_C
+    400108: Button_Brow_L
+    400110: Button_Brow_R
+    400112: Button_Emote
+    400114: Button_Eye_L
+    400116: Button_Eye_R
+    400118: Button_Jaw
+    400120: Button_Lid_L
+    400122: Button_Lid_R
+    400124: Button_Sync
+    400126: Rectangle001
+    400128: Text001
+    400130: Text002
+    400132: Text009
+    400134: Text010
+    400136: Text014
+    400138: Text015
+    400140: Text025
+    400142: Text027
+    400144: Text028
+    400146: Text029
+    400148: Text030
+    4300000: boxeur
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: boxeur
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

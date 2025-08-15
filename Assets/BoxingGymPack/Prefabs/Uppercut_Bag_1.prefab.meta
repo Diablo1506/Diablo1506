@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ca43685c01354d146ab4bda36de1c5a5
+timeCreated: 1493213789
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/Prefabs/Uppercut_Bag_1.prefab
+  uploadId: 184861

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d297a5d5cdd4e7f469b33e9f468e00d1
+timeCreated: 1459178236
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/VolumetricLights/Shaders/BilateralBlur.shader
+  uploadId: 184861

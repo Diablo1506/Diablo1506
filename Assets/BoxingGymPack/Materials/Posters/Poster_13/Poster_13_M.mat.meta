@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 22cab90e53bb4de449bbe208d27b7991
+timeCreated: 1492986161
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/Materials/Posters/Poster_13/Poster_13_M.mat
+  uploadId: 184861

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 921e02b82e5ddc44d819f60f89ffdee9
+timeCreated: 1496513695
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/VolumetricLights/VolumetricLights_Instructions.pdf
+  uploadId: 184861

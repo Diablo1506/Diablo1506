@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 214db82badaa2324a971346cf7d1bdea
+timeCreated: 1493203992
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/Materials/Bricks/Bricks_M_Untiled_Example.mat
+  uploadId: 184861

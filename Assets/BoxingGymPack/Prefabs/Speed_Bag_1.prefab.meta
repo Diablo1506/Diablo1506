@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c4dc678f90e83474c8f1170fbaec461e
+timeCreated: 1493214269
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/Prefabs/Speed_Bag_1.prefab
+  uploadId: 184861

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5581745d8c8418d40b2e1fa864b91856
+timeCreated: 1491321631
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/Materials/Ceiling/Ceiling_M.mat
+  uploadId: 184861

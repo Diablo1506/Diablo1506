@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7abd4394e52a43e45be657fb559905c2
+timeCreated: 1491318332
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/Scenes/Boxing_Gym_Demo.unity
+  uploadId: 184861

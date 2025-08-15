@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7dec6a58a998af84d850062cdb7aa34c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 262544
+  packageName: Boxing arena - pavilion
+  packageVersion: 1.0
+  assetPath: Assets/Boxing arena - pavilion/Models/Materials/M_boxing_ring.mat
+  uploadId: 606985

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 30d7d549a41717645ba5b82e9510fcdb
+timeCreated: 1491325052
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92836
+  packageName: Boxing Gym Pack
+  packageVersion: 1.0
+  assetPath: Assets/BoxingGymPack/Materials/Outer_Shell_M.mat
+  uploadId: 184861

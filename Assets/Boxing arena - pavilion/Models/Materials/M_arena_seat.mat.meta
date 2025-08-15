@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fe0b6e79b7b6fcf4c9311fbc2119731c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 262544
+  packageName: Boxing arena - pavilion
+  packageVersion: 1.0
+  assetPath: Assets/Boxing arena - pavilion/Models/Materials/M_arena_seat.mat
+  uploadId: 606985

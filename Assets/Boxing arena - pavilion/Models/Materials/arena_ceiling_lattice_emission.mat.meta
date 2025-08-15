@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 971198ad813eef344805b542b13e0d0a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 262544
+  packageName: Boxing arena - pavilion
+  packageVersion: 1.0
+  assetPath: Assets/Boxing arena - pavilion/Models/Materials/arena_ceiling_lattice_emission.mat
+  uploadId: 606985
