@@ -24,7 +24,7 @@ public class enemymove : MonoBehaviour
         //Look at the player
         transform.LookAt(player);
 
-        agent.SetDestination(player.transform.position);
+        // agent.SetDestination(player.transform.position);
 
         if (Vector3.Distance(transform.position, player.position) < enemyDistance)
         {
