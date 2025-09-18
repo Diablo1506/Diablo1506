@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Tale of the tape.unity
     guid: be2eebc518260934696ddc6a50d9e972
   - enabled: 1
-    path: Assets/Scenes/Boxing arena - pavilion.unity
+    path: Assets/Scenes/new/Game.unity
     guid: d6f198bee369f8f428a4d4222535a797
   - enabled: 0
     path: Assets/Scenes/TrainingGym.unity

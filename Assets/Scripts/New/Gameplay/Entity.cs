@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using New.Controllers;
 using New.Managers;
 using New.SO;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
@@ -11,10 +13,10 @@ namespace New.Gameplay
 {
     public class Entity : MonoBehaviour
     {
-        [FormerlySerializedAs("_entityMovement")]
+        [Title("Entity Base Class")]
         [SerializeField]
         private EntityInput _entityInput;
-        
+
         [SerializeField]
         private Animator _animator;
 
@@ -22,13 +24,13 @@ namespace New.Gameplay
         private int _maxEnergy;
 
         [SerializeField]
-        private int _energyRestore;
+        protected int _energyRestore;
 
         [SerializeField]
-        private int _energyRestoreTime;
+        protected int _energyRestoreTime;
 
         [SerializeField]
-        private bool _isPerformingAction;
+        protected bool _isPerformingAction;
 
         [SerializeField, Min(0.1f)]
         private float _comboTimeDuration;
@@ -44,16 +46,77 @@ namespace New.Gameplay
         [field: SerializeField] public bool IsAI { get; set; }
         [field: SerializeField] public Rigidbody EntityRigidbody { get; set; }
         [field: SerializeField] public PunchCollider PunchCollider { get; set; }
+        [field: SerializeField] public float RotateSpeed { get; set; } = 50f; // min should be 50
+        [field: SerializeField] public bool IsDead { get; set; }
 
-        public virtual void Initialize()
+        public virtual void Initialize(DifficultyData difficultyData = null)
         {
-            _entityInput.Initialize(this);
+            if (_entityInput != null)
+            {
+                _entityInput.Initialize(this);
+            }
+
+            if (PunchCollider != null)
+            {
+                PunchCollider.Initialize(this);
+            }
         }
-        
+
+        public void Uninitialize()
+        {
+            _entityInput.Initialize(null);
+            PunchCollider.Initialize(null);
+        }
+
+        public virtual void Update()
+        {
+            if (Get.GameManager.IsRoundOver)
+                return;
+            
+            if (IsDead)
+                return;
+            
+            FaceTarget();
+        }
+
         public void OnRoundStart()
         {
             EntityEnergy = _maxEnergy;
             RestoreEnergy();
+        }
+
+        private void FaceTarget()
+        {
+            Transform target = this == Get.GameManager.PlayerController
+                ? Get.GameManager.EnemyController.transform
+                : Get.GameManager.PlayerController.transform;
+
+            if (target == null) return;
+
+            bool isTargetOnRight = transform.position.x < target.position.x;
+
+            Quaternion targetRotation = new Quaternion();
+
+            if (this == Get.GameManager.PlayerController)
+            {
+                targetRotation = isTargetOnRight
+                    ? Quaternion.Euler(0, 90, 0) // Player faces right
+                    : Quaternion.Euler(0, -90, 0); // Player faces left
+            }
+            else // Enemy
+            {
+                targetRotation = isTargetOnRight
+                    ? Quaternion.Euler(0, 90, 0) // Enemy faces left (mirror logic)
+                    : Quaternion.Euler(0, -90, 0); // Enemy faces right
+            }
+
+
+            // Smoothly rotate towards target
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRotation,
+                Time.deltaTime * RotateSpeed
+            );
         }
 
         private void RestoreEnergy()
@@ -62,14 +125,21 @@ namespace New.Gameplay
                 return;
 
             _restoreEnergyCoroutine = StartCoroutine(RestoreEnergyCoroutine());
-            return;
 
             IEnumerator RestoreEnergyCoroutine()
             {
                 while (true)
                 {
-                    EntityEnergy = Mathf.Min(EntityEnergy + _energyRestore, _maxEnergy);
-                    Get.UIManager.GameUIController.PlayerStaminaSliderBar.ChangeValue(EntityEnergy);
+                    if (EntityEnergy < _maxEnergy)
+                    {
+                        EntityEnergy = Mathf.Min(EntityEnergy + _energyRestore, _maxEnergy);
+
+                        if (!IsAI)
+                            Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).PlayerStaminaSliderBar.ChangeValue(EntityEnergy);
+                        else
+                            Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).EnemyStaminaSliderBar.ChangeValue(EntityEnergy);
+                    }
+
                     yield return new WaitForSeconds(_energyRestoreTime);
                 }
             }
@@ -78,7 +148,6 @@ namespace New.Gameplay
         private void StopRestoreEnergy()
         {
             StopCoroutine(_restoreEnergyCoroutine);
-            _restoreEnergyCoroutine = null;
         }
 
         private void AddToCombo(PunchID punchID)
@@ -121,9 +190,9 @@ namespace New.Gameplay
             // add here punch collider active 
             PunchCollider.SetPunchColliderStatus(true, damage);
             var animState = _animator.GetCurrentAnimatorStateInfo(0);
-            float animLength = animState.length; // increase multiplier in animation to make it go faster, for faster combos upgrade
-            Debug.Log($"#{GetType()}: Punch Anim Length: {animLength}");
-            yield return new WaitForSeconds(animLength);
+            // float animLength = animState.length; // increase multiplier in animation to make it go faster, for faster combos upgrade
+            // Debug.Log($"#{GetType()}: Punch Anim Length: {animLength}");
+            yield return new WaitForSeconds(.1f);
             PunchCollider.SetPunchColliderStatus(false, damage);
             // disable punch collider here
             _isPerformingAction = false;
@@ -132,6 +201,11 @@ namespace New.Gameplay
 
         protected bool CanPunch(PunchID punchID)
         {
+            if (Get.GameManager.IsRoundOver)
+            {
+                return false;
+            }
+            
             var punchData = Get.PunchDataCollection.GetPunchData(punchID);
             return EntityEnergy >= punchData.EnergyRequired && !_isPerformingAction;
         }
@@ -140,21 +214,27 @@ namespace New.Gameplay
             Debug.Log($"#{GetType()}: PERFORMING {punchParameterName}");
             if (_isPerformingAction)
                 return;
-            
+
             _animator.SetTrigger(punchParameterName);
             StartCoroutine(PerformingActionCoroutine(damage));
         }
 
         public virtual void TakeDamage(int damage)
         {
+            _animator.SetTrigger("GetHit");
             EntityHealth -= damage;
+
+            if (EntityHealth <= 0)
+            {
+                OnDeath();
+            }
         }
 
         public virtual void OnPunch(PunchID punchID)
         {
             if (_animator.IsInTransition(0))
                 return;
-            
+
             var punchData = Get.PunchDataCollection.GetPunchData(punchID);
             EntityEnergy -= punchData.EnergyRequired;
             PerformPunch(punchData.PunchParameterName, punchData.Damage);
@@ -164,6 +244,15 @@ namespace New.Gameplay
         public void Walk(int direction)
         {
             _animator.SetInteger("Walk", direction);
+        }
+
+        public virtual void OnDeath()
+        {
+            IsDead = true;
+            _animator.SetTrigger("OnDeath");
+            
+            StopRestoreEnergy();
+            Get.GameManager.EndRound(this);
         }
     }
 }

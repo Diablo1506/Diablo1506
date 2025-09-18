@@ -33,10 +33,11 @@ namespace New.Controllers
                 {
                     yield return new WaitForSeconds(1);
                     _roundTime--;
-                    Get.UIManager.GameUIController.SetTime(_roundTime);
+                    Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).SetTime(_roundTime);
                 }
 
                 StopRound();
+                Get.GameManager.EndRoundByTime();
             }
         }
 

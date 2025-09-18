@@ -1,5 +1,6 @@
 using System;
 using CitrioN.SettingsMenuCreator;
+using Mono.Cecil;
 using New.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,7 +11,10 @@ namespace New.Gameplay
     {
         [SerializeField]
         private float _speed;
-        
+
+        [SerializeField]
+        private PlayerInput _playerInput;
+
         private Vector2 _movementDirection;
         private bool _isWalking;
         private Entity _entity;
@@ -18,10 +22,23 @@ namespace New.Gameplay
         public void Initialize(Entity entity)
         {
             _entity = entity;
+            _playerInput.enabled = true;
         }
 
         private void Update()
         {
+            if (Get.GameManager.IsRoundOver)
+                return;
+            
+            if (_entity == null)
+                return;
+
+            if (Get.GameManager.PlayerController == null)
+                return;
+            
+            if (Get.GameManager.PlayerController.IsDead)
+                return;
+
             Move();
         }
 
@@ -31,7 +48,7 @@ namespace New.Gameplay
         {
             if (_entity.IsAI)
                 return;
-            
+
             _movementDirection = value.Get<Vector2>();
         }
 
@@ -66,19 +83,19 @@ namespace New.Gameplay
         }
 
         #endregion
-        
+
         #region ACTIONS
 
         private void Move()
         {
             int intDirection = Mathf.RoundToInt(_movementDirection.x);
             _isWalking = intDirection != 0;
-            
+
             var finalMovementDirection = new Vector3(_movementDirection.x, 0, 0);
-            Debug.Log($"#{GetType()}: MOVE: {finalMovementDirection}");
+            // Debug.Log($"#{GetType()}: MOVE: {finalMovementDirection}");
             var targetPos = transform.position + finalMovementDirection * (_speed * Time.deltaTime);
             _entity.EntityRigidbody.MovePosition(targetPos);
-            
+
             _entity.Walk(intDirection);
         }
 
@@ -86,9 +103,10 @@ namespace New.Gameplay
         {
             if (_isWalking)
                 return;
-            
+
             _entity.OnPunch(punchID);
         }
+
         #endregion
     }
 }

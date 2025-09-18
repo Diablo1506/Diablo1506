@@ -10,6 +10,13 @@ namespace New.Gameplay
         private Collider _collider;
 
         public int DamageToGive;
+        private Entity _entity;
+
+        public void Initialize(Entity entity)
+        {
+            _entity = entity;
+            _collider.enabled = false;
+        }
 
         public void SetPunchColliderStatus(bool isActive, int damageToGive)
         {
@@ -19,9 +26,9 @@ namespace New.Gameplay
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out EnemyController enemyController))
+            if (other.TryGetComponent(out Entity entity) && _entity != entity)
             {
-                enemyController.TakeDamage(DamageToGive);
+                entity.TakeDamage(DamageToGive);
             }
         }
     }

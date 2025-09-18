@@ -8,6 +8,11 @@ namespace New.Gameplay
         [SerializeField]
         private Slider _healthSlider;
 
+        public void SetHealthSliderMaxValue(int value)
+        {
+            _healthSlider.maxValue = value;
+        }
+        
         public void ChangeValue(int health)
         {
             _healthSlider.value = health;
