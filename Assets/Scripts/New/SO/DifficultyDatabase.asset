@@ -55,3 +55,5 @@ MonoBehaviour:
       AttackCooldown: 1
       EnergyRestoreTime: 1
       EnergyRestored: 30
+  <CurrentDifficultyID>k__BackingField: 0
+  <HighestDifficultyIDUnlocked>k__BackingField: 3

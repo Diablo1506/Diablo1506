@@ -29,6 +29,9 @@ namespace New.Managers
         private EnemyController _enemyControllerPrefab;
 
         [SerializeField]
+        private EnemyController _trainingEnemyControllerPrefab;
+
+        [SerializeField]
         private Transform _playerControllerSpawnPosition;
 
         [SerializeField]
@@ -40,10 +43,26 @@ namespace New.Managers
         [field: SerializeField] public bool IsRoundOver { get; set; }
         [field: SerializeField] public DifficultyID DifficultyID { get; set; }
 
+        [SerializeField]
+        private bool _isInGame;
+        public bool IsInGame
+        {
+            get => _isInGame;
+            set => _isInGame = value;
+        }
+
+        private void Start()
+        {
+            Get.PlayerPrefManager.LoadGame();
+        }
+
         public void StartRound()
         {
             IsRoundOver = false;
+            IsInGame = true;
 
+            Get.AudioManager.PlaySFX(Get.AudioManager.BellClip);
+            
             if (_winDataDict.Count == 0)
             {
                 _winDataDict.TryAdd(PlayerController, 0);
@@ -51,16 +70,16 @@ namespace New.Managers
             }
 
             _roundTimeController.Initialize(this);
-            PlayerController.Initialize();
 
+            PlayerController.Initialize();
             EnemyController.Initialize(Get.DifficultyDatabase.GetDifficultyData(DifficultyID));
 
             PlayerController.OnRoundStart();
             EnemyController.OnRoundStart();
-            
+
             Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).PlayerStaminaSliderBar.ChangeValue(PlayerController.EntityEnergy);
             Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).EnemyStaminaSliderBar.ChangeValue(EnemyController.EntityEnergy);
-            
+
             _roundTimeController.StartRound();
         }
 
@@ -68,17 +87,20 @@ namespace New.Managers
         {
             // entity is the loser
             IsRoundOver = true;
+            IsInGame = false;
             _roundTimeController.StopRound();
 
             var gameUIController = Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI);
 
             if (entity is PlayerController)
             {
+                Debug.Log($"#{GetType()}: PLAYER LOST");
                 _winDataDict[EnemyController] += 1;
-                gameUIController.WinRoundCount.AddPlayerWin(_winDataDict[EnemyController]);
+                gameUIController.WinRoundCount.AddEnemyWin(_winDataDict[EnemyController]);
             }
             else
             {
+                Debug.Log($"#{GetType()}: ENEMY LOST");
                 _winDataDict[PlayerController] += 1;
                 gameUIController.WinRoundCount.AddPlayerWin(_winDataDict[PlayerController]);
             }
@@ -92,6 +114,19 @@ namespace New.Managers
             StartCoroutine(IENextRound());
         }
 
+        public void StartTraining()
+        {
+            StartCoroutine(IEStartTraining());
+            return;
+
+            IEnumerator IEStartTraining()
+            {
+                ResetTrainingEntities();
+                yield return new WaitForSeconds(1);
+                StartRound();
+            }
+        }
+
         private IEnumerator IENextRound()
         {
             // temporary sa ani kay mag beta testing paman
@@ -103,14 +138,37 @@ namespace New.Managers
             yield return new WaitForSeconds(1f);
             PlayerController = Instantiate(_playerControllerPrefab, _playerControllerSpawnPosition);
             EnemyController = Instantiate(_enemyControllerPrefab, _enemyControllerSpawnPosition);
-            
+
             _winDataDict.Clear();
             _winDataDict.TryAdd(PlayerController, playerWinCount);
             _winDataDict.TryAdd(EnemyController, enemyWinCount);
-            
+
             yield return new WaitForSeconds(1f);
 
             StartRound();
+        }
+
+        public void ResetEntities()
+        {
+            Destroy(PlayerController.gameObject);
+            Destroy(EnemyController.gameObject);
+            PlayerController = Instantiate(_playerControllerPrefab, _playerControllerSpawnPosition);
+            EnemyController = Instantiate(_enemyControllerPrefab, _enemyControllerSpawnPosition);
+            _winDataDict.Clear();
+            _winDataDict.TryAdd(PlayerController, 0);
+            _winDataDict.TryAdd(EnemyController, 0);
+        }
+
+        public void ResetTrainingEntities()
+        {
+            Destroy(PlayerController.gameObject);
+            Destroy(EnemyController.gameObject);
+            PlayerController = Instantiate(_playerControllerPrefab, _playerControllerSpawnPosition);
+            EnemyController = Instantiate(_trainingEnemyControllerPrefab, _enemyControllerSpawnPosition);
+            EnemyController.IsTrainingDummy = true;
+            _winDataDict.Clear();
+            _winDataDict.TryAdd(PlayerController, 0);
+            _winDataDict.TryAdd(EnemyController, 0);
         }
 
         public void EndRoundByTime()
@@ -127,16 +185,56 @@ namespace New.Managers
 
         private void EndGame()
         {
+            var endUIController = Get.UIManager.GetPanel<EndUIController>(PanelType.ENDUI);
+            Get.UIManager.ShowSingle(PanelType.ENDUI);
             if (_winDataDict[PlayerController] > _winDataDict[EnemyController])
             {
                 // win playercontroller
+                endUIController.SetWinnerName("Pacquiao");
+
+                if (Get.DifficultyDatabase.HighestDifficultyIDUnlocked != DifficultyID.LEVEL_EIGHT &&
+                Get.DifficultyDatabase.HighestDifficultyIDUnlocked == Get.DifficultyDatabase.CurrentDifficultyID)
+                {
+                    Get.DifficultyDatabase.HighestDifficultyIDUnlocked++;
+                }
             }
             else
             {
                 // win enemycontroller
+                DifficultyID currentDifficultyID = Get.DifficultyDatabase.CurrentDifficultyID;
+                EnemyData enemyData = Get.EnemyDatabase.GetEnemyData(currentDifficultyID);
+                endUIController.SetWinnerName(enemyData.EnemyName);
             }
-            
+
+            var gameUIController = Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI);
+            gameUIController.WinRoundCount.Reset();
+
             //show end game ui
+        }
+
+        public void EndGameByQuit()
+        {
+            Time.timeScale = 1;
+            IsInGame = false;
+            _roundTimeController.StopRound();
+            ResetEntities();
+
+            var gameUIController = Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI);
+            gameUIController.WinRoundCount.Reset();
+
+            Get.UIManager.ShowSingle(PanelType.PREFIGHT);
+        }
+
+        public void PauseGame()
+        {
+            Get.UIManager.ShowSingle(PanelType.PAUSE);
+            Time.timeScale = 0;
+        }
+
+        public void ResumeGame()
+        {
+            Get.UIManager.ShowSingle(PanelType.GAMEUI);
+            Time.timeScale = 1;
         }
     }
 }

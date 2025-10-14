@@ -25,11 +25,19 @@ namespace New.Controllers
         [SerializeField]
         private int _comboChance;
 
+        [field: SerializeField] public bool IsTrainingDummy { get; set; }
+
 
 
         public override void Initialize(DifficultyData difficultyData = null)
         {
             base.Initialize(difficultyData);
+
+            if (IsTrainingDummy)
+            {
+                EntityHealth = 999999;
+                return;
+            }
 
             IsAI = true;
             SetDifficultyData(difficultyData);
@@ -38,6 +46,9 @@ namespace New.Controllers
 
         public override void Update()
         {
+            if (IsTrainingDummy)
+                return;
+
             base.Update();
 
             if (IsDead)
@@ -51,7 +62,7 @@ namespace New.Controllers
         {
             if (IsDead)
                 return;
-            
+
             if (!CanPunch(punchID))
                 return;
 
@@ -61,12 +72,12 @@ namespace New.Controllers
             Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).EnemyStaminaSliderBar.ChangeValue(EntityEnergy);
             Debug.Log($"#{GetType()}: Getting punch shits here");
         }
-        
+
         public override void OnDeath()
         {
             base.OnDeath();
-            
-            
+
+
         }
 
         private void SetDifficultyData(DifficultyData difficultyData)
@@ -96,6 +107,8 @@ namespace New.Controllers
             base.TakeDamage(damage);
 
             Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).EnemyHealthSliderBar.ChangeValue(EntityHealth);
+
+            Get.UpgradeDatabase.UpgradeTokens += 1;
             // Get.UIManager.GameUIController.EnemyHealthSliderBar.ChangeValue(EntityHealth);
             // ChangeState(HurtState);
         }
@@ -165,14 +178,14 @@ namespace New.Controllers
         {
             Debug.Log($"#{GetType()}: PERFORMING COMBO");
             int punchesInCombo = 3;
-            
-            for (int i = 0; i < punchesInCombo; i++)
+
+            for(int i = 0; i < punchesInCombo; i++)
             {
                 var punch = (PunchID)UnityEngine.Random.Range(0, Enum.GetValues(typeof(PunchID)).Length);
                 OnPunch(punch);
 
                 // Wait until current punch animation finishes
-                yield return new WaitForSeconds(0.3f);  // keep it at this
+                yield return new WaitForSeconds(0.3f); // keep it at this
             }
 
         }

@@ -28,14 +28,19 @@ namespace New.Controllers
             // Get.UIManager.GameUIController.gameObject.SetActive(true);
         }
 
+        public void OnInstructionsButtonClicked()
+        {
+            Get.UIManager.ShowSingle(PanelType.INSTRUCTIONS);
+        }
+
         public void OnSettingsButtonClicked()
         {
-            
+            Get.UIManager.ShowSingle(PanelType.SETTINGS);
         }
 
         public void OnQuitButtonClicked()
         {
-            
+            Application.Quit();
         }
     }
 }

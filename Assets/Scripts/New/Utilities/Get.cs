@@ -9,4 +9,9 @@ public static class Get
     public static PunchDataCollection PunchDataCollection => PersistentManager.Instance.PunchDataCollection;
     public static GlobalDataCollection GlobalDataCollection => PersistentManager.Instance.GlobalDataCollection;
     public static DifficultyDatabase DifficultyDatabase => PersistentManager.Instance.DifficultyDatabase;
+    public static UpgradeDatabase UpgradeDatabase => PersistentManager.Instance.UpgradeDatabase;
+    public static PlayerPrefManager PlayerPrefManager => PersistentManager.Instance.PlayerPrefManager;
+    public static EnemyDatabase EnemyDatabase => PersistentManager.Instance.EnemyDatabase;
+    public static CutSceneDatabase CutSceneDatabase => PersistentManager.Instance.CutSceneDatabase;
+    public static AudioManager AudioManager => PersistentManager.Instance.AudioManager;
 }

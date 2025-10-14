@@ -221,6 +221,7 @@ namespace New.Gameplay
 
         public virtual void TakeDamage(int damage)
         {
+            Get.AudioManager.PlayPunch();
             _animator.SetTrigger("GetHit");
             EntityHealth -= damage;
 
@@ -248,11 +249,21 @@ namespace New.Gameplay
 
         public virtual void OnDeath()
         {
+            StartCoroutine(IEDeathSound());
+            
             IsDead = true;
             _animator.SetTrigger("OnDeath");
             
             StopRestoreEnergy();
             Get.GameManager.EndRound(this);
+
+            return;
+            
+            IEnumerator IEDeathSound()
+            {
+                yield return new WaitForSeconds(1f);
+                Get.AudioManager.PlaySFX(Get.AudioManager.DeathClip);
+            }
         }
     }
 }

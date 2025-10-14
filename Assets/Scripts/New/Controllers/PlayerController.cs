@@ -13,6 +13,12 @@ namespace New.Controllers
         {
             base.Initialize(difficultyData);
 
+            var upgradeData = Get.UpgradeDatabase.UpgradeData;
+            
+            EntityHealth = upgradeData.Health;
+            _energyRestoreTime = upgradeData.EnergyRestoreTime;
+            _energyRestore = upgradeData.EnergyRestored;
+
             IsAI = false;
         }
         

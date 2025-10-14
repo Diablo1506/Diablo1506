@@ -11,13 +11,26 @@ namespace New.Managers
         MAINMENU,
         PREFIGHT,
         GAMEUI,
-        TRAIN
+        TRAINUI,
+        ENDUI,
+        PAUSE,
+        CUTSCENE,
+        SETTINGS,
+        INTRO,
+        INSTRUCTIONS,
+        NONE
     }
     public class UIManager : MonoBehaviour
     {
         [SerializeField]
         private List<BasePanel> _panelList;
 
+        [SerializeField]
+        private PanelType _initialPanel = PanelType.INTRO;
+
+        private PanelType _currentPanel = PanelType.INTRO;
+        private PanelType _lastPanel = PanelType.INTRO;
+        
         private Stack<BasePanel> _panelStack = new Stack<BasePanel>();
         private Dictionary<PanelType, BasePanel> _panels = new Dictionary<PanelType, BasePanel>();
 
@@ -33,13 +46,23 @@ namespace New.Managers
 
         private void Start()
         {
-            ShowSingle(PanelType.MAINMENU);
+            ShowSingle(_initialPanel);
         }
 
-        /// <summary>Show panel while hiding all others (like changing a scene/screen)</summary>
         public void ShowSingle(PanelType type)
         {
-            // Hide everything
+            _currentPanel = type;
+            
+            if (_currentPanel is PanelType.MAINMENU or PanelType.PREFIGHT or PanelType.SETTINGS)
+            {
+                if (_lastPanel is not (PanelType.MAINMENU or PanelType.PREFIGHT or PanelType.SETTINGS))
+                {
+                    Get.AudioManager.PlayBGM(Get.AudioManager.MenuBGMClip);
+                }
+            }
+            
+            _lastPanel = _currentPanel;
+            
             foreach (var p in _panels.Values)
                 p.OnHide();
 

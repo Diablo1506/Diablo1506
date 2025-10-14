@@ -11,6 +11,11 @@ namespace New.Managers
         [field: SerializeField] public PunchDataCollection PunchDataCollection { get; private set; }
         [field: SerializeField] public GlobalDataCollection GlobalDataCollection { get; private set; }
         [field: SerializeField] public DifficultyDatabase DifficultyDatabase { get; private set; }
+        [field: SerializeField] public UpgradeDatabase UpgradeDatabase { get; private set; }
+        [field: SerializeField] public PlayerPrefManager PlayerPrefManager { get; private set; }
+        [field: SerializeField] public EnemyDatabase EnemyDatabase { get; private set; }
+        [field: SerializeField] public CutSceneDatabase CutSceneDatabase { get; private set; }
+        [field: SerializeField] public AudioManager AudioManager { get; private set; }
         public static PersistentManager Instance { get; private set; }
 
         private void Awake()

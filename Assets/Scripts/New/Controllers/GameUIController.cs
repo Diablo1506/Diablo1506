@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using New.Gameplay;
+using New.Managers;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -35,12 +37,26 @@ namespace New.Controllers
         {
             base.OnShow();
 
-            StartCoroutine(IECountDown());
+            Get.AudioManager.PlayBGM(Get.AudioManager.InGameBGMClip);
         }
 
         public override void OnHide()
         {
             base.OnHide();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) && Get.GameManager.IsInGame)
+            {
+                Get.GameManager.PauseGame();
+            }
+        }
+
+        public void StartCountDown()
+        {
+            // todo: cut scene sa dri.a
+            StartCoroutine(IECountDown());
         }
 
         private IEnumerator IECountDown()

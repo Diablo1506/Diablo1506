@@ -33,6 +33,19 @@ namespace New.SO
         [SerializeField]
         private SerializedDictionary<DifficultyID, DifficultyData> _difficultyDataDict;
 
+        [SerializeField]
+        private DifficultyID _highestDifficultyIDUnlocked;
+        [field: SerializeField] public DifficultyID CurrentDifficultyID { get; set; } = DifficultyID.LEVEL_ONE;
+        public DifficultyID HighestDifficultyIDUnlocked
+        {
+            get => _highestDifficultyIDUnlocked;
+            set
+            {
+                _highestDifficultyIDUnlocked = value;
+                Get.PlayerPrefManager.SaveDifficultyData();
+            }
+        }
+
         public DifficultyData GetDifficultyData(DifficultyID difficultyID)
         {
             return _difficultyDataDict.GetValueOrDefault(difficultyID);

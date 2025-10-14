@@ -26,7 +26,7 @@ namespace New.Gameplay
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out Entity entity) && _entity != entity)
+            if (other.TryGetComponent(out Entity entity) && _entity != entity && Get.GameManager.IsInGame)
             {
                 entity.TakeDamage(DamageToGive);
             }
