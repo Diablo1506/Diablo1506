@@ -42,6 +42,7 @@ namespace New.Controllers
         public void OnBackToMenuButtonClicked()
         {
             Get.GameManager.EndGameByQuit();
+            Get.EnvironmentManager.ToggleStadiumEnvironment();
         }
     }
 }

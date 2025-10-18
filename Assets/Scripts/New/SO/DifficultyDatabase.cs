@@ -42,7 +42,7 @@ namespace New.SO
             set
             {
                 _highestDifficultyIDUnlocked = value;
-                Get.PlayerPrefManager.SaveDifficultyData();
+                // Get.PlayerPrefManager.SaveDifficultyData();
             }
         }
 

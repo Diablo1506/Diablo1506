@@ -1,6 +1,7 @@
 using System;
 using New.SO;
 using Newtonsoft.Json;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace New.Managers
@@ -8,34 +9,53 @@ namespace New.Managers
     [Serializable]
     public class SaveData
     {
+        public string UserName;
         public DifficultyID HighestDifficultyIDUnlocked;
+        public int UpgradeTokens;
         public UpgradeData UpgradeData;
+    }
+
+    public enum SaveSlotID
+    {
+        SLOTONE,
+        SLOTTWO,
+        SLOTTHREE
     }
 
     public class PlayerPrefManager : MonoBehaviour
     {
-        public void LoadGame()
-        {
-            LoadUpgradeData();
-            LoadDifficultyData();
-        }
-
+        [field: SerializeField] public string CurrentUserName { get; set; }
+        [field: SerializeField] public SaveSlotID CurrentSaveSlotID { get; set; }
+        
         public void SaveGame()
         {
+            string slotKey = null;
+            
+            switch (CurrentSaveSlotID)
+            {
+                case SaveSlotID.SLOTONE:
+                    slotKey = Constants.SAVE_SLOT_ONE_KEY;
+                    break;
+                case SaveSlotID.SLOTTWO:
+                    slotKey = Constants.SAVE_SLOT_TWO_KEY;
+                    break;
+                case SaveSlotID.SLOTTHREE:
+                    slotKey = Constants.SAVE_SLOT_THREE_KEY;
+                    break;
+            }
+            
             var saveData = new SaveData()
             {
+                UserName = CurrentUserName,
                 HighestDifficultyIDUnlocked = Get.DifficultyDatabase.HighestDifficultyIDUnlocked,
+                UpgradeTokens = Get.UpgradeDatabase.UpgradeTokens,
                 UpgradeData = Get.UpgradeDatabase.UpgradeData
             };
-            
+
             var jsonSaveData = JsonConvert.SerializeObject(saveData);
+            PlayerPrefs.SetString(slotKey, jsonSaveData);
             // SaveUpgradeData();
             // SaveDifficultyData();
-        }
-
-        public bool CheckIfSlotExists(string slotKey)
-        {
-            return PlayerPrefs.HasKey(slotKey);
         }
 
         public SaveData GetSaveData(string slotKey)
@@ -45,46 +65,12 @@ namespace New.Managers
             return saveData;
         }
 
-        public void SaveDifficultyData()
+        [Button]
+        private void DebugClearAllData()
         {
-            var difficultyID = Get.DifficultyDatabase.HighestDifficultyIDUnlocked;
-            PlayerPrefs.SetString(Constants.DIFFICULTY_KEY, difficultyID.ToString());
-        }
-
-        private void LoadDifficultyData()
-        {
-            if (!PlayerPrefs.HasKey(Constants.DIFFICULTY_KEY))
-                return;
-
-            var difficultyString = PlayerPrefs.GetString(Constants.DIFFICULTY_KEY);
-            var difficultyID = (DifficultyID)Enum.Parse(typeof(DifficultyID), difficultyString);
-            Get.DifficultyDatabase.HighestDifficultyIDUnlocked = difficultyID;
-        }
-
-        public void SaveUpgradeData()
-        {
-            var jsonData = JsonConvert.SerializeObject(Get.UpgradeDatabase.UpgradeData);
-            PlayerPrefs.SetString(Constants.UPGRADE_KEY, jsonData);
-        }
-
-        private void LoadUpgradeData()
-        {
-            if (!PlayerPrefs.HasKey(Constants.UPGRADE_KEY))
-            {
-                Get.UpgradeDatabase.UpgradeData = new UpgradeData()
-                {
-                    Health = 100,
-                    EnergyRestored = 5,
-                    EnergyRestoreTime = 3
-                };
-
-                return;
-            }
-
-            var jsonData = PlayerPrefs.GetString(Constants.UPGRADE_KEY);
-            var upgradeData = JsonConvert.DeserializeObject<UpgradeData>(jsonData);
-
-            Get.UpgradeDatabase.UpgradeData = upgradeData;
+            PlayerPrefs.DeleteKey(Constants.SAVE_SLOT_ONE_KEY);
+            PlayerPrefs.DeleteKey(Constants.SAVE_SLOT_TWO_KEY);
+            PlayerPrefs.DeleteKey(Constants.SAVE_SLOT_THREE_KEY);
         }
     }
 }

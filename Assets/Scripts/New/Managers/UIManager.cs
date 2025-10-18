@@ -18,6 +18,7 @@ namespace New.Managers
         SETTINGS,
         INTRO,
         INSTRUCTIONS,
+        LOAD,
         NONE
     }
     public class UIManager : MonoBehaviour

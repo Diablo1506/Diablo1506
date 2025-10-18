@@ -10,6 +10,7 @@ namespace New.Controllers
 {
     public class PreFightMenuController : BasePanel
     {
+        [Header("Pre-Fight Menu")]
         [SerializeField]
         private TMP_Text _tokensText;
 
@@ -39,6 +40,19 @@ namespace New.Controllers
 
         [SerializeField]
         private TMP_Dropdown _difficultyDropdown;
+
+        [Header("Enemy Stats")]
+        [SerializeField]
+        private TMP_Text _winsText;
+
+        [SerializeField]
+        private TMP_Text _lossText;
+
+        [SerializeField]
+        private TMP_Text _heightText;
+
+        [SerializeField]
+        private TMP_Text _weightText;
 
         public override void OnInitialize()
         {
@@ -76,6 +90,8 @@ namespace New.Controllers
         {
             Get.UIManager.ShowSingle(PanelType.GAMEUI);
             Get.GameManager.StartTraining();
+            
+            Get.EnvironmentManager.ToggleGymEnvironment();
         }
 
         private void OnUpgradeHealthButtonClicked()
@@ -85,7 +101,6 @@ namespace New.Controllers
 
             Get.UpgradeDatabase.UpgradeTokens -= 10;
             Get.UpgradeDatabase.UpgradeData.Health += 1;
-            Get.PlayerPrefManager.SaveUpgradeData();
 
             UpdateUI();
         }
@@ -98,8 +113,6 @@ namespace New.Controllers
             Get.UpgradeDatabase.UpgradeTokens -= 100;
             Get.UpgradeDatabase.UpgradeData.EnergyRestoreTime -= 1;
             
-            Get.PlayerPrefManager.SaveUpgradeData();
-
             UpdateUI();
         }
 
@@ -110,7 +123,6 @@ namespace New.Controllers
 
             Get.UpgradeDatabase.UpgradeTokens -= 10;
             Get.UpgradeDatabase.UpgradeData.EnergyRestored += 1;
-            Get.PlayerPrefManager.SaveUpgradeData();
 
             UpdateUI();
         }
@@ -126,8 +138,14 @@ namespace New.Controllers
             EnemyData enemyData = Get.EnemyDatabase.GetEnemyData(currentDifficultyID);
             _enemyName.text = enemyData.EnemyName;
             _enemyImage.sprite = enemyData.EnemySprite;
+            _winsText.text = enemyData.Wins.ToString();
+            _lossText.text = enemyData.Losses.ToString();
+            _heightText.text = enemyData.Height.ToString();
+            _weightText.text = enemyData.Weight.ToString();
             
             UpdateDropdown();
+            
+            Get.PlayerPrefManager.SaveGame();
         }
 
         private void UpdateDropdown()

@@ -17,17 +17,49 @@ MonoBehaviour:
     m_Values:
     - EnemyName: Chatchai Sasakul
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
+      Wins: 10
+      Losses: 2
+      Height: 1612
+      Weight: 12345
     - EnemyName: 'Lehlohonolo Ledwaba '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
+      Wins: 142
+      Losses: 12442
+      Height: 424
+      Weight: 42
     - EnemyName: 'Marco Antonio Barrera '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
+      Wins: 42424
+      Losses: 42
+      Height: 4
+      Weight: 4
     - EnemyName: "Juan Manuel M\xE1rquez "
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
+      Wins: 0
+      Losses: 0
+      Height: 0
+      Weight: 0
     - EnemyName: "David D\xEDaz "
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
+      Wins: 0
+      Losses: 0
+      Height: 0
+      Weight: 0
     - EnemyName: 'Ricky Hatton '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
+      Wins: 0
+      Losses: 0
+      Height: 0
+      Weight: 0
     - EnemyName: 'Miguel Cotto '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
+      Wins: 0
+      Losses: 0
+      Height: 0
+      Weight: 0
     - EnemyName: 'Antonio Margarito '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
+      Wins: 0
+      Losses: 0
+      Height: 0
+      Weight: 0

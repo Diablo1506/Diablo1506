@@ -11,7 +11,11 @@ namespace New.SO
     {
         public string EnemyName;
         public Sprite EnemySprite;
-        // maybe add the player skins here?
+        public int Wins;
+        public int Losses;
+        public int Height;
+        public int Weight;
+        //todo: maybe add the player skins here?
     }
     
     [CreateAssetMenu(fileName = "EnemyDatabase", menuName = "EnemyDatabase")]

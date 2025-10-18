@@ -14,4 +14,5 @@ public static class Get
     public static EnemyDatabase EnemyDatabase => PersistentManager.Instance.EnemyDatabase;
     public static CutSceneDatabase CutSceneDatabase => PersistentManager.Instance.CutSceneDatabase;
     public static AudioManager AudioManager => PersistentManager.Instance.AudioManager;
+    public static EnvironmentManager EnvironmentManager => PersistentManager.Instance.EnvironmentManager;
 }

@@ -13,6 +13,8 @@ namespace New.Controllers
         public override void OnShow()
         {
             base.OnShow();
+
+            Get.PlayerPrefManager.CurrentUserName = string.Empty;
         }
 
         public override void OnHide()
@@ -23,7 +25,7 @@ namespace New.Controllers
         public void OnPlayButtonClicked()
         {
             // temp
-            Get.UIManager.ShowSingle(PanelType.PREFIGHT);
+            Get.UIManager.ShowSingle(PanelType.LOAD);
             // gameObject.SetActive(false);
             // Get.UIManager.GameUIController.gameObject.SetActive(true);
         }

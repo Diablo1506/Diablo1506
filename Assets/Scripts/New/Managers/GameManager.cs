@@ -53,7 +53,7 @@ namespace New.Managers
 
         private void Start()
         {
-            Get.PlayerPrefManager.LoadGame();
+            // Get.PlayerPrefManager.LoadGame();
         }
 
         public void StartRound()
@@ -210,6 +210,7 @@ namespace New.Managers
             gameUIController.WinRoundCount.Reset();
 
             //show end game ui
+            Get.PlayerPrefManager.SaveGame();
         }
 
         public void EndGameByQuit()

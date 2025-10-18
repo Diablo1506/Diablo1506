@@ -15,8 +15,8 @@ MonoBehaviour:
   <UpgradeTokens>k__BackingField: 0
   <HealthUpgradePrice>k__BackingField: 10
   <EnergyRestoreTimeUpgradePrice>k__BackingField: 100
-  <EnergyRestoredUpgradePrice>k__BackingField: 10
+  <EnergyRestoredUpgradePrice>k__BackingField: 50
   <UpgradeData>k__BackingField:
-    Health: 108
+    Health: 100
     EnergyRestoreTime: 5
-    EnergyRestored: 8
+    EnergyRestored: 5

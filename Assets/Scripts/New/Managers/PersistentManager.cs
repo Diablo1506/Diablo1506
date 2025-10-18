@@ -16,6 +16,7 @@ namespace New.Managers
         [field: SerializeField] public EnemyDatabase EnemyDatabase { get; private set; }
         [field: SerializeField] public CutSceneDatabase CutSceneDatabase { get; private set; }
         [field: SerializeField] public AudioManager AudioManager { get; private set; }
+        [field: SerializeField] public EnvironmentManager EnvironmentManager { get; private set; }
         public static PersistentManager Instance { get; private set; }
 
         private void Awake()
