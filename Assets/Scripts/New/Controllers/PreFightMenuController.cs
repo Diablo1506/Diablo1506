@@ -4,6 +4,7 @@ using New.Managers;
 using New.SO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace New.Controllers
@@ -48,11 +49,13 @@ namespace New.Controllers
         [SerializeField]
         private TMP_Text _lossText;
 
+        [FormerlySerializedAs("_heightText")]
         [SerializeField]
-        private TMP_Text _heightText;
+        private TMP_Text _healthText;
 
+        [FormerlySerializedAs("_weightText")]
         [SerializeField]
-        private TMP_Text _weightText;
+        private TMP_Text _staminaText;
 
         public override void OnInitialize()
         {
@@ -69,6 +72,13 @@ namespace New.Controllers
             _difficultyDropdown.onValueChanged.AddListener(SelectDropdownOption);
 
             UpdateUI();
+            
+            bool hasCompletedTutorial = Get.AchievementDatabase.GetAchievement(AchievementID.COMPLETETUTORIAL).HasAchieved;
+
+            if (!hasCompletedTutorial)
+            {
+                Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).StartTutorial();
+            }
         }
 
         public override void OnHide()
@@ -83,6 +93,7 @@ namespace New.Controllers
 
         public void OnFightButtonClicked()
         {
+            Get.GameManager.ResetEntities();
             Get.UIManager.ShowSingle(PanelType.CUTSCENE);
         }
 
@@ -138,10 +149,8 @@ namespace New.Controllers
             EnemyData enemyData = Get.EnemyDatabase.GetEnemyData(currentDifficultyID);
             _enemyName.text = enemyData.EnemyName;
             _enemyImage.sprite = enemyData.EnemySprite;
-            _winsText.text = enemyData.Wins.ToString();
-            _lossText.text = enemyData.Losses.ToString();
-            _heightText.text = enemyData.Height.ToString();
-            _weightText.text = enemyData.Weight.ToString();
+            
+            
             
             UpdateDropdown();
             
@@ -156,7 +165,8 @@ namespace New.Controllers
 
             foreach (DifficultyID id in values)
             {
-                _difficultyDropdown.options.Add(new TMP_Dropdown.OptionData(id.ToString()));
+                string displayName = id.ToString().Replace("_", " ");
+                _difficultyDropdown.options.Add(new TMP_Dropdown.OptionData(displayName));
 
                 if ((int)id == (int)Get.DifficultyDatabase.HighestDifficultyIDUnlocked)
                 {
@@ -175,11 +185,28 @@ namespace New.Controllers
             EnemyData enemyData = Get.EnemyDatabase.GetEnemyData(currentDifficultyID);
             _enemyName.text = enemyData.EnemyName;
             _enemyImage.sprite = enemyData.EnemySprite;
+            
+            DifficultyData difficultyData = Get.DifficultyDatabase.GetDifficultyData(currentDifficultyID);
+
+            _winsText.text = $"Wins {enemyData.Wins}";
+            _lossText.text = $"{enemyData.Losses} Losses";
+            _healthText.text = $"Health: {difficultyData.Health}"; // changing to health
+            _staminaText.text = $"Stamina Restored Per {difficultyData.EnergyRestoreTime} seconds: {difficultyData.EnergyRestored}"; // changing to stamina
         }
 
         public void OnBackButtonClicked()
         {
             Get.UIManager.ShowSingle(PanelType.MAINMENU);
+        }
+
+        public void OnTrophyButtonClicked()
+        {
+            Get.UIManager.ShowSingle(PanelType.TROPHY);
+        }
+
+        public void OnAchievementButtonClicked()
+        {
+            Get.UIManager.ShowSingle(PanelType.ACHIEVEMENT);
         }
     }
 }

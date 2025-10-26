@@ -41,6 +41,7 @@ namespace New.Controllers
 
         public void OnBackToMenuButtonClicked()
         {
+            Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).CompleteTutorialStep(TutorialID.EXIT);
             Get.GameManager.EndGameByQuit();
             Get.EnvironmentManager.ToggleStadiumEnvironment();
         }

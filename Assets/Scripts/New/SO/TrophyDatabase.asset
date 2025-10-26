@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256bdea2990db364aafcbd82381473b6, type: 3}
+  m_Name: TrophyDatabase
+  m_EditorClassIdentifier: 
+  <TrophyDataDict>k__BackingField:
+    m_Keys: 0000000001000000020000000300000004000000050000000600000007000000
+    m_Values:
+    - DescriptionPageList:
+      - pac
+      - quaio
+      - manny
+      Defeated: 1
+    - DescriptionPageList:
+      - test11
+      - test22
+      - test333
+      Defeated: 1
+    - DescriptionPageList: []
+      Defeated: 1
+    - DescriptionPageList: []
+      Defeated: 0
+    - DescriptionPageList: []
+      Defeated: 0
+    - DescriptionPageList: []
+      Defeated: 0
+    - DescriptionPageList: []
+      Defeated: 0
+    - DescriptionPageList: []
+      Defeated: 0

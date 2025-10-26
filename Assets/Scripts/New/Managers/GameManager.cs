@@ -42,6 +42,8 @@ namespace New.Managers
         [field: SerializeField] public EnemyController EnemyController { get; set; }
         [field: SerializeField] public bool IsRoundOver { get; set; }
         [field: SerializeField] public DifficultyID DifficultyID { get; set; }
+        [field: SerializeField] public Transform LeftBoundary { get; set; }
+        [field: SerializeField] public Transform RightBoundary { get; set; }
 
         [SerializeField]
         private bool _isInGame;
@@ -81,6 +83,8 @@ namespace New.Managers
             Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).EnemyStaminaSliderBar.ChangeValue(EnemyController.EntityEnergy);
 
             _roundTimeController.StartRound();
+            
+            Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).CheckTrainingUI();
         }
 
         public void EndRound(Entity entity)
@@ -116,6 +120,7 @@ namespace New.Managers
 
         public void StartTraining()
         {
+            Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).CheckTrainingUI();
             StartCoroutine(IEStartTraining());
             return;
 
@@ -137,7 +142,8 @@ namespace New.Managers
             Destroy(EnemyController.gameObject);
             yield return new WaitForSeconds(1f);
             PlayerController = Instantiate(_playerControllerPrefab, _playerControllerSpawnPosition);
-            EnemyController = Instantiate(_enemyControllerPrefab, _enemyControllerSpawnPosition);
+            var enemyControllerPrefab = Get.EnemyDatabase.GetEnemyData(Get.DifficultyDatabase.CurrentDifficultyID).EnemyController;
+            EnemyController = Instantiate(enemyControllerPrefab, _enemyControllerSpawnPosition);
 
             _winDataDict.Clear();
             _winDataDict.TryAdd(PlayerController, playerWinCount);
@@ -153,7 +159,8 @@ namespace New.Managers
             Destroy(PlayerController.gameObject);
             Destroy(EnemyController.gameObject);
             PlayerController = Instantiate(_playerControllerPrefab, _playerControllerSpawnPosition);
-            EnemyController = Instantiate(_enemyControllerPrefab, _enemyControllerSpawnPosition);
+            var enemyControllerPrefab = Get.EnemyDatabase.GetEnemyData(Get.DifficultyDatabase.CurrentDifficultyID).EnemyController;
+            EnemyController = Instantiate(enemyControllerPrefab, _enemyControllerSpawnPosition);
             _winDataDict.Clear();
             _winDataDict.TryAdd(PlayerController, 0);
             _winDataDict.TryAdd(EnemyController, 0);
@@ -190,12 +197,33 @@ namespace New.Managers
             if (_winDataDict[PlayerController] > _winDataDict[EnemyController])
             {
                 // win playercontroller
-                endUIController.SetWinnerName("Pacquiao");
 
-                if (Get.DifficultyDatabase.HighestDifficultyIDUnlocked != DifficultyID.LEVEL_EIGHT &&
+                if (PlayerController.EntityHealth >= Get.UpgradeDatabase.UpgradeData.Health)
+                {
+                    if (!Get.AchievementDatabase.SetAchievement(AchievementID.PERFECTHEALTH, true))
+                        return;
+                    Get.UIManager.AchievementPopUpController.ShowAchievementPopUp(AchievementID.PERFECTHEALTH);
+                }
+
+                if (Get.DifficultyDatabase.CurrentDifficultyID == DifficultyID.DIVISION_EIGHT)
+                {
+                    Get.AchievementDatabase.SetAchievement(AchievementID.DEFEATEDLASTOPPONENT, true);
+                    Get.UIManager.AchievementPopUpController.ShowAchievementPopUp(AchievementID.DEFEATEDLASTOPPONENT);
+                }
+                
+                if (Get.DifficultyDatabase.HighestDifficultyIDUnlocked != DifficultyID.DIVISION_EIGHT &&
                 Get.DifficultyDatabase.HighestDifficultyIDUnlocked == Get.DifficultyDatabase.CurrentDifficultyID)
                 {
                     Get.DifficultyDatabase.HighestDifficultyIDUnlocked++;
+                    var enemyData = Get.EnemyDatabase.GetEnemyData(Get.DifficultyDatabase.CurrentDifficultyID);
+                    Get.TrophyDatabase.SetDefeated(Get.DifficultyDatabase.CurrentDifficultyID, true);
+                    Get.UpgradeDatabase.UpgradeTokens += 100; // add visuals saying you earned 100 points
+                    endUIController.SetWinnerName("Pacquiao", 100);
+                }
+                else
+                {
+                    Get.UpgradeDatabase.UpgradeTokens += 10; // add visuals saying you earned 10 points
+                    endUIController.SetWinnerName("Pacquiao", 10);
                 }
             }
             else
@@ -219,7 +247,7 @@ namespace New.Managers
             IsInGame = false;
             _roundTimeController.StopRound();
             ResetEntities();
-
+            
             var gameUIController = Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI);
             gameUIController.WinRoundCount.Reset();
 

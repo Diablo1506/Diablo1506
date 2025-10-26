@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using New.SO;
 using Newtonsoft.Json;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace New.Managers
 {
@@ -13,6 +15,7 @@ namespace New.Managers
         public DifficultyID HighestDifficultyIDUnlocked;
         public int UpgradeTokens;
         public UpgradeData UpgradeData;
+        public Dictionary<AchievementID, bool> AchievementStatusDict = new();
     }
 
     public enum SaveSlotID
@@ -27,6 +30,7 @@ namespace New.Managers
         [field: SerializeField] public string CurrentUserName { get; set; }
         [field: SerializeField] public SaveSlotID CurrentSaveSlotID { get; set; }
         
+        [Button]
         public void SaveGame()
         {
             string slotKey = null;
@@ -49,8 +53,14 @@ namespace New.Managers
                 UserName = CurrentUserName,
                 HighestDifficultyIDUnlocked = Get.DifficultyDatabase.HighestDifficultyIDUnlocked,
                 UpgradeTokens = Get.UpgradeDatabase.UpgradeTokens,
-                UpgradeData = Get.UpgradeDatabase.UpgradeData
+                UpgradeData = Get.UpgradeDatabase.UpgradeData,
+                AchievementStatusDict = new Dictionary<AchievementID, bool>()
             };
+            
+            foreach (var kvp in Get.AchievementDatabase.AchievementDataDict)
+            {
+                saveData.AchievementStatusDict[kvp.Key] = kvp.Value.HasAchieved;
+            }
 
             var jsonSaveData = JsonConvert.SerializeObject(saveData);
             PlayerPrefs.SetString(slotKey, jsonSaveData);

@@ -15,4 +15,7 @@ public static class Get
     public static CutSceneDatabase CutSceneDatabase => PersistentManager.Instance.CutSceneDatabase;
     public static AudioManager AudioManager => PersistentManager.Instance.AudioManager;
     public static EnvironmentManager EnvironmentManager => PersistentManager.Instance.EnvironmentManager;
+    public static ParticleManager ParticleManager => PersistentManager.Instance.ParticleManager;
+    public static TrophyDatabase TrophyDatabase => PersistentManager.Instance.TrophyDatabase;
+    public static AchievementDatabase AchievementDatabase => PersistentManager.Instance.AchievementDatabase;
 }

@@ -1,3 +1,4 @@
+using System;
 using New.Gameplay;
 using New.Managers;
 using New.SO;
@@ -19,6 +20,8 @@ namespace New.Controllers
             _energyRestoreTime = upgradeData.EnergyRestoreTime;
             _energyRestore = upgradeData.EnergyRestored;
 
+            Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).PlayerHealthSliderBar.ChangeValue(EntityHealth);
+            
             IsAI = false;
         }
         

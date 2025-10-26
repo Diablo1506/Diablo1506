@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using New.Controllers;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -13,9 +14,7 @@ namespace New.SO
         public Sprite EnemySprite;
         public int Wins;
         public int Losses;
-        public int Height;
-        public int Weight;
-        //todo: maybe add the player skins here?
+        public EnemyController EnemyController;
     }
     
     [CreateAssetMenu(fileName = "EnemyDatabase", menuName = "EnemyDatabase")]

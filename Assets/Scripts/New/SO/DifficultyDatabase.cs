@@ -7,14 +7,14 @@ namespace New.SO
 {
     public enum DifficultyID
     {
-        LEVEL_ONE,
-        LEVEL_TWO,
-        LEVEL_THREE,
-        LEVEL_FOUR,
-        LEVEL_FIVE,
-        LEVEL_SIX,
-        LEVEL_SEVEN,
-        LEVEL_EIGHT
+        DIVISION_ONE,
+        DIVISION_TWO,
+        DIVISION_THREE,
+        DIVISION_FOUR,
+        DIVISION_FIVE,
+        DIVISION_SIX,
+        DIVISION_SEVEN,
+        DIVISION_EIGHT
     }
 
     [Serializable]
@@ -35,7 +35,7 @@ namespace New.SO
 
         [SerializeField]
         private DifficultyID _highestDifficultyIDUnlocked;
-        [field: SerializeField] public DifficultyID CurrentDifficultyID { get; set; } = DifficultyID.LEVEL_ONE;
+        [field: SerializeField] public DifficultyID CurrentDifficultyID { get; set; } = DifficultyID.DIVISION_ONE;
         public DifficultyID HighestDifficultyIDUnlocked
         {
             get => _highestDifficultyIDUnlocked;

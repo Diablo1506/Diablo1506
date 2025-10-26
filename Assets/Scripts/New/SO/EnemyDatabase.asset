@@ -19,47 +19,39 @@ MonoBehaviour:
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 10
       Losses: 2
-      Height: 1612
-      Weight: 12345
+      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
     - EnemyName: 'Lehlohonolo Ledwaba '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 142
-      Losses: 12442
-      Height: 424
-      Weight: 42
+      Wins: 1
+      Losses: 1
+      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
     - EnemyName: 'Marco Antonio Barrera '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 42424
-      Losses: 42
-      Height: 4
-      Weight: 4
+      Wins: 2
+      Losses: 33
+      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
     - EnemyName: "Juan Manuel M\xE1rquez "
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 0
-      Losses: 0
-      Height: 0
-      Weight: 0
+      Wins: 1
+      Losses: 1
+      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
     - EnemyName: "David D\xEDaz "
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 0
-      Losses: 0
-      Height: 0
-      Weight: 0
+      Wins: 3
+      Losses: 3
+      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
     - EnemyName: 'Ricky Hatton '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 0
-      Losses: 0
-      Height: 0
-      Weight: 0
+      Wins: 45
+      Losses: 5
+      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
     - EnemyName: 'Miguel Cotto '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 0
       Losses: 0
-      Height: 0
-      Weight: 0
+      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
     - EnemyName: 'Antonio Margarito '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 0
       Losses: 0
-      Height: 0
-      Weight: 0
+      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}

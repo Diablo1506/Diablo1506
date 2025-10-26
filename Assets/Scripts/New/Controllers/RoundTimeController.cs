@@ -21,11 +21,14 @@ namespace New.Controllers
 
         private void StartTime()
         {
-            if (_roundTimeCoroutine != null)
+            if (_roundTimeCoroutine != null || _gameManager.EnemyController.IsTrainingDummy)
+            {
+                Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).SetTime(0);
                 return;
-            
+            }
+
             _roundTimeCoroutine = StartCoroutine(StartTimeCoroutine());
-                return;
+            return;
 
             IEnumerator StartTimeCoroutine()
             {
@@ -50,7 +53,9 @@ namespace New.Controllers
 
         public void StopRound()
         {
-            StopCoroutine(_roundTimeCoroutine);
+            if (_roundTimeCoroutine != null)
+                StopCoroutine(_roundTimeCoroutine);
+            
             _roundTimeCoroutine = null;
         }
     }

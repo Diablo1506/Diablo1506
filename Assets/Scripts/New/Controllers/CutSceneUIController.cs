@@ -13,9 +13,9 @@ namespace New.Controllers
 
         [SerializeField]
         private int _dialogueLength = 5;
-        
+
         private CutSceneData _cutSceneData;
-        
+
         public override void OnInitialize()
         {
             base.OnInitialize();
@@ -26,7 +26,7 @@ namespace New.Controllers
             base.OnShow();
 
             _cutSceneData = Get.CutSceneDatabase.GetCutSceneData(Get.DifficultyDatabase.CurrentDifficultyID);
-            
+
             StartCutScene();
         }
 
@@ -43,20 +43,37 @@ namespace New.Controllers
         private IEnumerator IECutScene()
         {
             int i = 0;
-
             while (i < _cutSceneData.PlayerDialogueList.Count)
             {
-                _cutSceneText.text = _cutSceneData.PlayerDialogueList[i];
-                Get.CameraManager.SetCutSceneCamera(true);
-                yield return new WaitForSeconds(_dialogueLength);
-                _cutSceneText.text = _cutSceneData.EnemyDialogueList[i];
-                Get.CameraManager.SetCutSceneCamera(false);
-                yield return new WaitForSeconds(_dialogueLength);
+                string playerLine = _cutSceneData.PlayerDialogueList[i];
+                string enemyLine = _cutSceneData.EnemyDialogueList.Count > i
+                    ? _cutSceneData.EnemyDialogueList[i]
+                    : string.Empty;
+
+                // Player speaks
+                if (!string.IsNullOrWhiteSpace(playerLine))
+                {
+                    _cutSceneText.text = playerLine;
+                    Get.CameraManager.SetCutSceneCamera(true);
+                    yield return new WaitForSeconds(_dialogueLength);
+                }
+
+                // Enemy responds
+                if (!string.IsNullOrWhiteSpace(enemyLine))
+                {
+                    _cutSceneText.text = enemyLine;
+                    Get.CameraManager.SetCutSceneCamera(false);
+                    yield return new WaitForSeconds(_dialogueLength);
+                }
 
                 i++;
                 yield return null;
             }
-            
+
+            // Fade out text (optional polish)
+            _cutSceneText.text = string.Empty;
+
+            // Transition to game
             Get.UIManager.ShowSingle(PanelType.GAMEUI);
             Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).StartCountDown();
         }

@@ -19,6 +19,8 @@ namespace New.Managers
         INTRO,
         INSTRUCTIONS,
         LOAD,
+        TROPHY,
+        ACHIEVEMENT,
         NONE
     }
     public class UIManager : MonoBehaviour
@@ -28,6 +30,8 @@ namespace New.Managers
 
         [SerializeField]
         private PanelType _initialPanel = PanelType.INTRO;
+        
+        [field: SerializeField] public AchievementPopUpController AchievementPopUpController { get; private set; }
 
         private PanelType _currentPanel = PanelType.INTRO;
         private PanelType _lastPanel = PanelType.INTRO;

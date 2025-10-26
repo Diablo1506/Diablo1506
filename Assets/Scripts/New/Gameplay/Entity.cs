@@ -38,9 +38,12 @@ namespace New.Gameplay
         [SerializeField]
         private List<PunchID> _currentCombo = new List<PunchID>();
 
+        private bool _isGuarding;
+
         private Coroutine _comboTimerCoroutine;
 
         private Coroutine _restoreEnergyCoroutine;
+        private bool _isFacingRight;
         [field: SerializeField] public int EntityHealth { get; set; }
         [field: SerializeField] public int EntityEnergy { get; set; }
         [field: SerializeField] public bool IsAI { get; set; }
@@ -48,6 +51,7 @@ namespace New.Gameplay
         [field: SerializeField] public PunchCollider PunchCollider { get; set; }
         [field: SerializeField] public float RotateSpeed { get; set; } = 50f; // min should be 50
         [field: SerializeField] public bool IsDead { get; set; }
+        [field: SerializeField] public Transform PunchVFXSpawnPoint { get; set; }
 
         public virtual void Initialize(DifficultyData difficultyData = null)
         {
@@ -72,10 +76,10 @@ namespace New.Gameplay
         {
             if (Get.GameManager.IsRoundOver)
                 return;
-            
+
             if (IsDead)
                 return;
-            
+
             FaceTarget();
         }
 
@@ -93,19 +97,19 @@ namespace New.Gameplay
 
             if (target == null) return;
 
-            bool isTargetOnRight = transform.position.x < target.position.x;
+            _isFacingRight = transform.position.x < target.position.x;
 
             Quaternion targetRotation = new Quaternion();
 
             if (this == Get.GameManager.PlayerController)
             {
-                targetRotation = isTargetOnRight
+                targetRotation = _isFacingRight
                     ? Quaternion.Euler(0, 90, 0) // Player faces right
                     : Quaternion.Euler(0, -90, 0); // Player faces left
             }
             else // Enemy
             {
-                targetRotation = isTargetOnRight
+                targetRotation = _isFacingRight
                     ? Quaternion.Euler(0, 90, 0) // Enemy faces left (mirror logic)
                     : Quaternion.Euler(0, -90, 0); // Enemy faces right
             }
@@ -205,7 +209,7 @@ namespace New.Gameplay
             {
                 return false;
             }
-            
+
             var punchData = Get.PunchDataCollection.GetPunchData(punchID);
             return EntityEnergy >= punchData.EnergyRequired && !_isPerformingAction;
         }
@@ -222,7 +226,17 @@ namespace New.Gameplay
         public virtual void TakeDamage(int damage)
         {
             Get.AudioManager.PlayPunch();
-            _animator.SetTrigger("GetHit");
+
+            if (_isGuarding)
+            {
+                damage = Mathf.RoundToInt((float)damage / 4f);
+            }
+            else
+            {
+                _animator.SetTrigger("GetHit");
+                Get.ParticleManager.PlayPunchVFX(PunchVFXSpawnPoint.position);
+            }
+
             EntityHealth -= damage;
 
             if (EntityHealth <= 0)
@@ -244,26 +258,43 @@ namespace New.Gameplay
 
         public void Walk(int direction)
         {
-            _animator.SetInteger("Walk", direction);
+            if (direction == 0)
+            {
+                _animator.SetInteger("Walk", 0);
+                return;
+            }
+
+            // If facing right, direction stays the same.
+            // If facing left, invert it.
+            int adjustedDirection = _isFacingRight ? direction : -direction;
+
+            _animator.SetInteger("Walk", adjustedDirection);
         }
+
 
         public virtual void OnDeath()
         {
             StartCoroutine(IEDeathSound());
-            
+
             IsDead = true;
             _animator.SetTrigger("OnDeath");
-            
+
             StopRestoreEnergy();
             Get.GameManager.EndRound(this);
 
             return;
-            
+
             IEnumerator IEDeathSound()
             {
                 yield return new WaitForSeconds(1f);
                 Get.AudioManager.PlaySFX(Get.AudioManager.DeathClip);
             }
+        }
+
+        public void SetGuard(bool isGuard)
+        {
+            _animator.SetBool("Guard", isGuard);
+            _isGuarding = isGuard;
         }
     }
 }

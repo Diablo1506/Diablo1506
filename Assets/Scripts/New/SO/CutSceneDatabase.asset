@@ -17,36 +17,40 @@ MonoBehaviour:
     m_Values:
     - PlayerDialogueList:
       - hello i am manny pakyuuu
-      - sheshh
-      - traaaaa?
       EnemyDialogueList:
       - pakyuu podd
-      - sheshhhhhh
-      - traaa
     - PlayerDialogueList:
       - hello i am manny pakyuuuhello i am manny pakyuuuhello i am manny pakyuuuhello
         i am manny pakyuuuhello i am manny pakyuuuhello i am manny pakyuuuhello i
         am manny pakyuuuhello i am manny pakyuuuhello i am manny pakyuuuhello i am
         manny pakyuuu
+      - 
+      - ddddd
       EnemyDialogueList:
       - pakyuu poddpakyuu poddpakyuu poddpakyuu poddpakyuu poddpakyuu poddpakyuu
         poddpakyuu poddpakyuu poddpakyuu poddpakyuu poddpakyuu poddpakyuu podd
+      - 2323232
+      - 1111
     - PlayerDialogueList:
-      - hello i am manny pakyuuu
-      - sheshh
-      - traaaaa?
+      - 
+      - 
+      - 
+      - 4
       EnemyDialogueList:
-      - pakyuu podd
-      - sheshhhhhh
-      - traaa
+      - 1
+      - 2
+      - 3
+      - 
     - PlayerDialogueList:
-      - hello i am manny pakyuuu
-      - sheshh
-      - traaaaa?
+      - 1
+      - 2
+      - 3
+      - 
       EnemyDialogueList:
-      - pakyuu podd
-      - sheshhhhhh
-      - traaa
+      - 
+      - 
+      - 
+      - 4
     - PlayerDialogueList:
       - hello i am manny pakyuuu
       - sheshh

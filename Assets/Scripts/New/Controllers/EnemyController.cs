@@ -90,6 +90,8 @@ namespace New.Controllers
             _energyRestore = difficultyData.EnergyRestored;
             _energyRestoreTime = difficultyData.EnergyRestoreTime;
 
+            
+            Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).EnemyHealthSliderBar.ChangeValue(EntityHealth);
         }
 
         public void ChangeState(IEnemyState newState)
@@ -108,7 +110,13 @@ namespace New.Controllers
 
             Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).EnemyHealthSliderBar.ChangeValue(EntityHealth);
 
-            Get.UpgradeDatabase.UpgradeTokens += 1;
+            if (IsTrainingDummy) // only works for training dummy
+            {
+                Get.UpgradeDatabase.UpgradeTokens += 1;
+                Get.ParticleManager.PlayPlusTokenVFX(PunchVFXSpawnPoint.position);
+                Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).CompleteTutorialStep(TutorialID.PUNCHINGBAG);
+                Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).AddPoints(1);
+            }
             // Get.UIManager.GameUIController.EnemyHealthSliderBar.ChangeValue(EntityHealth);
             // ChangeState(HurtState);
         }
