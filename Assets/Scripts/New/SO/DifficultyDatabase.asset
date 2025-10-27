@@ -17,37 +17,37 @@ MonoBehaviour:
     m_Values:
     - Health: 100
       ComboChance: 100
-      AttackCooldown: 3
+      AttackCooldown: 1
       EnergyRestoreTime: 5
       EnergyRestored: 5
     - Health: 110
       ComboChance: 20
-      AttackCooldown: 4
+      AttackCooldown: 1
       EnergyRestoreTime: 5
       EnergyRestored: 5
     - Health: 120
       ComboChance: 30
-      AttackCooldown: 4
+      AttackCooldown: 1
       EnergyRestoreTime: 4
       EnergyRestored: 5
     - Health: 130
       ComboChance: 40
-      AttackCooldown: 4
+      AttackCooldown: 1
       EnergyRestoreTime: 4
       EnergyRestored: 10
     - Health: 140
       ComboChance: 50
-      AttackCooldown: 3
+      AttackCooldown: 1
       EnergyRestoreTime: 3
       EnergyRestored: 10
     - Health: 150
       ComboChance: 60
-      AttackCooldown: 3
+      AttackCooldown: 1
       EnergyRestoreTime: 3
       EnergyRestored: 10
     - Health: 160
       ComboChance: 70
-      AttackCooldown: 2
+      AttackCooldown: 1
       EnergyRestoreTime: 2
       EnergyRestored: 10
     - Health: 180
@@ -56,4 +56,4 @@ MonoBehaviour:
       EnergyRestoreTime: 1
       EnergyRestored: 30
   _highestDifficultyIDUnlocked: 0
-  <CurrentDifficultyID>k__BackingField: 0
+  <CurrentDifficultyID>k__BackingField: 7

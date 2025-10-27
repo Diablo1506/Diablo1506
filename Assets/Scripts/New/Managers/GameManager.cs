@@ -64,7 +64,7 @@ namespace New.Managers
             IsInGame = true;
 
             Get.AudioManager.PlaySFX(Get.AudioManager.BellClip);
-            
+
             if (_winDataDict.Count == 0)
             {
                 _winDataDict.TryAdd(PlayerController, 0);
@@ -83,7 +83,7 @@ namespace New.Managers
             Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).EnemyStaminaSliderBar.ChangeValue(EnemyController.EntityEnergy);
 
             _roundTimeController.StartRound();
-            
+
             Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).CheckTrainingUI();
         }
 
@@ -151,7 +151,8 @@ namespace New.Managers
 
             yield return new WaitForSeconds(1f);
 
-            StartRound();
+            // StartRound();
+            Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).StartCountDown();
         }
 
         public void ResetEntities()
@@ -210,21 +211,26 @@ namespace New.Managers
                     Get.AchievementDatabase.SetAchievement(AchievementID.DEFEATEDLASTOPPONENT, true);
                     Get.UIManager.AchievementPopUpController.ShowAchievementPopUp(AchievementID.DEFEATEDLASTOPPONENT);
                 }
-                
-                if (Get.DifficultyDatabase.HighestDifficultyIDUnlocked != DifficultyID.DIVISION_EIGHT &&
-                Get.DifficultyDatabase.HighestDifficultyIDUnlocked == Get.DifficultyDatabase.CurrentDifficultyID)
+
+                var current = Get.DifficultyDatabase.CurrentDifficultyID;
+                var highest = Get.DifficultyDatabase.HighestDifficultyIDUnlocked;
+
+                if (current == highest && highest != DifficultyID.DIVISION_EIGHT)
                 {
+                    // First time defeating this difficulty
                     Get.DifficultyDatabase.HighestDifficultyIDUnlocked++;
-                    var enemyData = Get.EnemyDatabase.GetEnemyData(Get.DifficultyDatabase.CurrentDifficultyID);
-                    Get.TrophyDatabase.SetDefeated(Get.DifficultyDatabase.CurrentDifficultyID, true);
-                    Get.UpgradeDatabase.UpgradeTokens += 100; // add visuals saying you earned 100 points
+                    Get.UpgradeDatabase.UpgradeTokens += 100;
                     endUIController.SetWinnerName("Pacquiao", 100);
                 }
                 else
                 {
-                    Get.UpgradeDatabase.UpgradeTokens += 10; // add visuals saying you earned 10 points
+                    // Already defeated before
+                    Get.UpgradeDatabase.UpgradeTokens += 10;
                     endUIController.SetWinnerName("Pacquiao", 10);
                 }
+
+                Get.TrophyDatabase.SetDefeated(Get.DifficultyDatabase.CurrentDifficultyID, true);
+
             }
             else
             {
@@ -247,7 +253,7 @@ namespace New.Managers
             IsInGame = false;
             _roundTimeController.StopRound();
             ResetEntities();
-            
+
             var gameUIController = Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI);
             gameUIController.WinRoundCount.Reset();
 
