@@ -122,14 +122,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3287904155548602526, guid: 85c737492dc821b44902f567ce6142f7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 695752134eb938d4c81f9c06df8b0512, type: 2}
+    - target: {fileID: -1586002746737968917, guid: 85c737492dc821b44902f567ce6142f7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a1136dd9ecdf86d4497ee9461df390a2, type: 2}
+    - target: {fileID: -868285274309470514, guid: 85c737492dc821b44902f567ce6142f7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c57add395e4327e49b5eb8b2d6a2efdb, type: 2}
     - target: {fileID: 919132149155446097, guid: 85c737492dc821b44902f567ce6142f7, type: 3}
       propertyPath: m_Name
       value: Avatar
       objectReference: {fileID: 0}
+    - target: {fileID: 5128063986421979777, guid: 85c737492dc821b44902f567ce6142f7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e86d3c23a3f72b445a7ba5207e0278ba, type: 2}
     - target: {fileID: 5866666021909216657, guid: 85c737492dc821b44902f567ce6142f7, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6761708314861323176, guid: 85c737492dc821b44902f567ce6142f7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: de59249922bcecd489e20dbbf0563417, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

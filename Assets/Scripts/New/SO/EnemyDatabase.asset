@@ -19,12 +19,12 @@ MonoBehaviour:
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 10
       Losses: 2
-      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
+      EnemyController: {fileID: 1024230215738732222, guid: ed5cccfc1433c8c4b8865221201af6c1, type: 3}
     - EnemyName: 'Lehlohonolo Ledwaba '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 1
       Losses: 1
-      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
+      EnemyController: {fileID: 2344488657238050955, guid: 4cce42b5ba16ec44abbe198e075eaf83, type: 3}
     - EnemyName: 'Marco Antonio Barrera '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 2
@@ -34,7 +34,7 @@ MonoBehaviour:
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 1
       Losses: 1
-      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
+      EnemyController: {fileID: 8780832266354972301, guid: 28f0deaf98bc7094a9d8f2afd235cb28, type: 3}
     - EnemyName: "David D\xEDaz "
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 3
@@ -44,14 +44,14 @@ MonoBehaviour:
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 45
       Losses: 5
-      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
+      EnemyController: {fileID: 4070661593419836309, guid: 4584c4d5177dd88479949178ecf9a1ee, type: 3}
     - EnemyName: 'Miguel Cotto '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 0
       Losses: 0
-      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
+      EnemyController: {fileID: 7252555457025503942, guid: a36fd2b2b68d1f94bba2819b38eff86e, type: 3}
     - EnemyName: 'Antonio Margarito '
       EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
       Wins: 0
       Losses: 0
-      EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
+      EnemyController: {fileID: 3740023262033215020, guid: 412619e3d0fe0f14eb8fff2115c2c51f, type: 3}
