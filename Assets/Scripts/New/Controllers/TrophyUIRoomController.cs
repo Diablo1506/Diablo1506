@@ -17,6 +17,9 @@ namespace New.Controllers
         private SerializedDictionary<DifficultyID, GameObject> _trophyObjectDict;
 
         [SerializeField]
+        private GameObject _buttonContainer;
+        
+        [SerializeField]
         private GameObject _pagesObject;
 
         [SerializeField]
@@ -62,6 +65,8 @@ namespace New.Controllers
             _currentTrophyData = Get.TrophyDatabase.GetTrophyData(difficultyID);
             _currentPageIndex = 0;
             UpdatePageUI();
+            
+            _buttonContainer.SetActive(false);
         }
 
         private void UpdatePageUI()
@@ -126,6 +131,8 @@ namespace New.Controllers
 
             _pagesObject.SetActive(false);
             _currentTrophyData = null;
+            
+            _buttonContainer.SetActive(true);
         }
 
         public void OnBackButtonClicked()
