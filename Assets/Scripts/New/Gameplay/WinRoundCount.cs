@@ -8,7 +8,7 @@ namespace New.Gameplay
     {
         [SerializeField]
         private List<GameObject> _playerWinCount;
-
+        
         [SerializeField]
         private List<GameObject> _enemyWinCount;
 

@@ -52,8 +52,9 @@ namespace New.Controllers
         public override void OnDeath()
         {
             base.OnDeath();
-            
-            
+
+            // _animator.SetTrigger(Get.GameManager.PlayDeathAnimationOrNot(this) ? "OnDeath" : "OnKneel");
+            _animator.SetTrigger("OnDeath");
         }
     }
 }

@@ -49,6 +49,9 @@ namespace New.Controllers
         [SerializeField]
         private TMP_Text _lossText;
 
+        [SerializeField]
+        private TMP_Text _weightClassText;
+
         [FormerlySerializedAs("_heightText")]
         [SerializeField]
         private TMP_Text _healthText;
@@ -190,6 +193,7 @@ namespace New.Controllers
 
             _winsText.text = $"Wins {enemyData.Wins}";
             _lossText.text = $"{enemyData.Losses} Losses";
+            _weightClassText.text = enemyData.WeightClass;
             _healthText.text = $"Health: {difficultyData.Health}"; // changing to health
             _staminaText.text = $"Stamina Restored Per {difficultyData.EnergyRestoreTime} seconds: {difficultyData.EnergyRestored}"; // changing to stamina
         }

@@ -18,7 +18,7 @@ namespace New.Gameplay
         private EntityInput _entityInput;
 
         [SerializeField]
-        private Animator _animator;
+        protected Animator _animator;
 
         [SerializeField]
         private int _maxEnergy;
@@ -277,7 +277,6 @@ namespace New.Gameplay
             StartCoroutine(IEDeathSound());
 
             IsDead = true;
-            _animator.SetTrigger("OnDeath");
 
             StopRestoreEnergy();
             Get.GameManager.EndRound(this);

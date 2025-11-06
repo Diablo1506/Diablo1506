@@ -14,6 +14,7 @@ namespace New.SO
         public Sprite EnemySprite;
         public int Wins;
         public int Losses;
+        public string WeightClass;
         public EnemyController EnemyController;
     }
     

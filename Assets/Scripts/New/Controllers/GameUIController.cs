@@ -41,6 +41,7 @@ namespace New.Controllers
         private TMP_Text _pointsAddedText;
         private int _pointsAdded;
 
+        public int CurrentRound = 0;
 
         [field: SerializeField] public WinRoundCount WinRoundCount { get; set; }
 
@@ -107,6 +108,12 @@ namespace New.Controllers
         private IEnumerator IECountDown()
         {
             _countDownText.gameObject.SetActive(true);
+
+            // round number
+            CurrentRound++;
+            _countDownText.text = $"Round {CurrentRound}";
+            yield return new WaitForSeconds(3f);
+            
             int countDown = 3;
             _countDownText.text = countDown.ToString(); // show immediately
 

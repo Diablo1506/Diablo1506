@@ -192,7 +192,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 0ab0d10c257ee9e499f0b18d8bd67137, type: 3}
       propertyPath: m_Name
-      value: EnemyController
+      value: EnemyController 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0ab0d10c257ee9e499f0b18d8bd67137, type: 3}
       propertyPath: m_LocalPosition.x
@@ -245,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: 0ab0d10c257ee9e499f0b18d8bd67137, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 10b5e91976d9080439fbaad5f0376d09, type: 2}
+      objectReference: {fileID: 2100000, guid: b9f2eeb598e5fd047a9a1dbf98d28b64, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

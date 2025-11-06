@@ -77,6 +77,10 @@ namespace New.Controllers
         {
             base.OnDeath();
 
+            // _animator.SetTrigger(Get.GameManager.PlayDeathAnimationOrNot(this) ? "OnDeath" : "OnKneel");
+
+            _animator.SetTrigger("OnDeath");
+
 
         }
 
@@ -90,7 +94,7 @@ namespace New.Controllers
             _energyRestore = difficultyData.EnergyRestored;
             _energyRestoreTime = difficultyData.EnergyRestoreTime;
 
-            
+
             Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).EnemyHealthSliderBar.ChangeValue(EntityHealth);
         }
 

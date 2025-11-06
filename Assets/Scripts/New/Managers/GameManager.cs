@@ -111,6 +111,7 @@ namespace New.Managers
 
             if (_winDataDict[EnemyController] == 2 || _winDataDict[PlayerController] == 2)
             {
+                gameUIController.CurrentRound = 0;
                 EndGame();
                 return;
             }
@@ -221,12 +222,14 @@ namespace New.Managers
                     Get.DifficultyDatabase.HighestDifficultyIDUnlocked++;
                     Get.UpgradeDatabase.UpgradeTokens += 100;
                     endUIController.SetWinnerName("Pacquiao", 100);
+                    Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).CurrentRound = 0;
                 }
                 else
                 {
                     // Already defeated before
                     Get.UpgradeDatabase.UpgradeTokens += 10;
                     endUIController.SetWinnerName("Pacquiao", 10);
+                    Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI).CurrentRound = 0;
                 }
 
                 Get.TrophyDatabase.SetDefeated(Get.DifficultyDatabase.CurrentDifficultyID, true);
@@ -256,6 +259,7 @@ namespace New.Managers
 
             var gameUIController = Get.UIManager.GetPanel<GameUIController>(PanelType.GAMEUI);
             gameUIController.WinRoundCount.Reset();
+            gameUIController.CurrentRound = 0;
 
             Get.UIManager.ShowSingle(PanelType.PREFIGHT);
         }
@@ -270,6 +274,14 @@ namespace New.Managers
         {
             Get.UIManager.ShowSingle(PanelType.GAMEUI);
             Time.timeScale = 1;
+        }
+
+        public bool PlayDeathAnimationOrNot(Entity entity)
+        {
+            if (!_winDataDict.TryGetValue(entity, out int value))
+                return false;
+            
+            return value >= 2;
         }
     }
 }
