@@ -16,70 +16,86 @@ MonoBehaviour:
     m_Keys: 0000000001000000020000000300000004000000050000000600000007000000
     m_Values:
     - PlayerDialogueList:
-      - hello i am manny pakyuuu
+      - I may be young, but my heart is ready. I trained for this moment all my life.
+      - Maybe. But faith moves mountains. I believe God put me here for a reason.
+      - "Win or lose, I fight for my country \u2014 for every Filipino who dreams."
       EnemyDialogueList:
-      - pakyuu podd
-    - PlayerDialogueList:
-      - hello i am manny pakyuuuhello i am manny pakyuuuhello i am manny pakyuuuhello
-        i am manny pakyuuuhello i am manny pakyuuuhello i am manny pakyuuuhello i
-        am manny pakyuuuhello i am manny pakyuuuhello i am manny pakyuuuhello i am
-        manny pakyuuu
-      - 
-      - ddddd
-      EnemyDialogueList:
-      - pakyuu poddpakyuu poddpakyuu poddpakyuu poddpakyuu poddpakyuu poddpakyuu
-        poddpakyuu poddpakyuu poddpakyuu poddpakyuu poddpakyuu poddpakyuu podd
-      - 2323232
-      - 1111
+      - "You\u2019ve got speed, kid. But experience wins fights."
+      - "Then let\u2019s see whose reason is stronger."
     - PlayerDialogueList:
       - 
-      - 
-      - 
-      - 4
+      - "Maybe not ready in your eyes, but I\u2019m ready in my heart. I trained
+        like this is my only chance."
+      - "Then you\u2019ll bring out the best in me. That\u2019s all I ask \u2014
+        a chance to show what hard work and faith can do."
+      - "Then get ready, champ. Because tonight, I\u2019m not leaving without that
+        belt."
+      - "I won\u2019t. I fight for my family, for my people, and for God. He gives
+        me strength."
       EnemyDialogueList:
-      - 1
-      - 2
-      - 3
-      - 
+      - "You came in late, kid. You\u2019re not ready for a champion."
+      - "This is my division. I\u2019ve been champion for a reason."
+      - "You\u2019ve got spirit. Don\u2019t let it break you."
     - PlayerDialogueList:
-      - 1
-      - 2
-      - 3
+      - 
+      - "I know, Champ. But I didn\u2019t come here just to be fast \u2014 I came
+        here to give everything I have"
+      - "\u201CI respect you. You\u2019re a great fighter. But I believe God gives
+        us strength for a reason \u2014 and tonight, I\u2019ll use mine."
+      - "Always. Because I fight not only for myself \u2014 but for my country, for
+        my people, and for every Filipino dreamer watching tonight."
+      EnemyDialogueList:
+      - "You\u2019re fast, kid. But speed alone won\u2019t save you tonight."
+      - Many have tried to take me down. None succeeded easily.
+      - Then fight like a warrior.
+    - PlayerDialogueList:
+      - 
+      - "I respect that. But I don\u2019t depend only on power \u2014 I depend on
+        faith, discipline, and heart."
+      - "Experience is strong \u2014 but hunger is stronger. I came from nothing,
+        and I\u2019ll fight like it."
+      - "Yes. Tonight, I fight for my people and for God \u2014 the source of my
+        strength."
+      EnemyDialogueList:
+      - "I\u2019ve studied you. You\u2019re strong, but I\u2019ve been preparing
+        for months for this moment"
+      - "We\u2019ll see if your heart can match my experience."
+      - "Then we\u2019ll give the fans what they came for."
+    - PlayerDialogueList:
+      - 
+      - "I respect your strength. But I believe I\u2019m stronger because I\u2019ve
+        trained and prepared with heart."
+      - "We\u2019ll both be tested. But I come for more than the belt \u2014 for
+        my people, for hope."
+      EnemyDialogueList:
+      - "You\u2019re moving up in weight, young man. You\u2019ll feel strength you\u2019ve
+        not felt before."
+      - "I\u2019m built for this weight. I will make you pay for moving up."
+    - PlayerDialogueList:
+      - 
+      - "I respect you, Ricky. You\u2019re a great fighter. But I believe we\u2019re
+        here to give the world something special."
+      - "I will. Let\u2019s make it a fight to remember."
+      EnemyDialogueList:
+      - "You\u2019re the hype, Pacquiao. But I am the reality here. I\u2019ve been
+        champion, I\u2019ve been tested."
+      - "Then show me. Let\u2019s fight."
+    - PlayerDialogueList:
+      - 
+      - "I know your power. I\u2019ve prepared to face it. My speed, my faith \u2014
+        they carry me. I fight not just for myself, but for everyone who believes."
+      - "I will. Let\u2019s make it a fight to remember."
+      EnemyDialogueList:
+      - "You\u2019ve moved up again. I\u2019m the naturally bigger man. I\u2019ve
+        been at this weight. I\u2019ll test your heart tonight."
+      - Then show me what that faith means in this ring.
+    - PlayerDialogueList:
+      - 
+      - "I know the challenge. But I believe when you train with purpose, when you
+        carry your people\u2019s hopes, weight becomes just a number. I come with
+        heart, with faith, with purpose."
       - 
       EnemyDialogueList:
-      - 
-      - 
-      - 
-      - 4
-    - PlayerDialogueList:
-      - hello i am manny pakyuuu
-      - sheshh
-      - traaaaa?
-      EnemyDialogueList:
-      - pakyuu podd
-      - sheshhhhhh
-      - traaa
-    - PlayerDialogueList:
-      - hello i am manny pakyuuu
-      - sheshh
-      - traaaaa?
-      EnemyDialogueList:
-      - pakyuu podd
-      - sheshhhhhh
-      - traaa
-    - PlayerDialogueList:
-      - hello i am manny pakyuuu
-      - sheshh
-      - traaaaa?
-      EnemyDialogueList:
-      - pakyuu podd
-      - sheshhhhhh
-      - traaa
-    - PlayerDialogueList:
-      - hello i am manny pakyuuu
-      - sheshh
-      - traaaaa?
-      EnemyDialogueList:
-      - pakyuu podd
-      - sheshhhhhh
-      - traaa
+      - "You\u2019re stepping into a higher division. I\u2019ve fought big men. I
+        will pressure you, make this heavy."
+      - Then fight like it.

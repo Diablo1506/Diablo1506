@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UpgradeTokens>k__BackingField: 0
   <HealthUpgradePrice>k__BackingField: 10
-  <EnergyRestoreTimeUpgradePrice>k__BackingField: 100
-  <EnergyRestoredUpgradePrice>k__BackingField: 50
+  <EnergyRestoreTimeUpgradePrice>k__BackingField: 50
+  <EnergyRestoredUpgradePrice>k__BackingField: 100
   <UpgradeData>k__BackingField:
     Health: 100
-    EnergyRestoreTime: 5
-    EnergyRestored: 5
+    EnergyRestoreTime: 4
+    EnergyRestored: 15

@@ -16,50 +16,50 @@ MonoBehaviour:
     m_Keys: 0000000001000000020000000300000004000000050000000600000007000000
     m_Values:
     - EnemyName: Chatchai Sasakul
-      EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 10
+      EnemySprite: {fileID: 21300000, guid: 9661c2c2be274574a9acf7accf655ccc, type: 3}
+      Wins: 32
       Losses: 2
-      WeightClass: 
+      WeightClass: Flyweight
       EnemyController: {fileID: 1024230215738732222, guid: ed5cccfc1433c8c4b8865221201af6c1, type: 3}
     - EnemyName: 'Lehlohonolo Ledwaba '
-      EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 1
+      EnemySprite: {fileID: 21300000, guid: 7c7d05f8ec745c445815b17b8a36333c, type: 3}
+      Wins: 33
       Losses: 1
-      WeightClass: 
+      WeightClass: Super Bantamweight
       EnemyController: {fileID: 2344488657238050955, guid: 4cce42b5ba16ec44abbe198e075eaf83, type: 3}
     - EnemyName: 'Marco Antonio Barrera '
-      EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 2
-      Losses: 33
-      WeightClass: 
+      EnemySprite: {fileID: 21300000, guid: 7e3643dc0166521409d81fe685eb0332, type: 3}
+      Wins: 57
+      Losses: 3
+      WeightClass: Featherweight
       EnemyController: {fileID: 1234083719198371793, guid: 8c736d8b81e0a2b4c86cb4a72e6ff835, type: 3}
     - EnemyName: "Juan Manuel M\xE1rquez "
-      EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 1
-      Losses: 1
-      WeightClass: 
+      EnemySprite: {fileID: 21300000, guid: 7e3643dc0166521409d81fe685eb0332, type: 3}
+      Wins: 42
+      Losses: 2
+      WeightClass: Super Featherweight
       EnemyController: {fileID: 8780832266354972301, guid: 28f0deaf98bc7094a9d8f2afd235cb28, type: 3}
     - EnemyName: "David D\xEDaz "
-      EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 3
-      Losses: 3
-      WeightClass: 
+      EnemySprite: {fileID: 21300000, guid: c946229c941d752428c7adf0d1eb1b65, type: 3}
+      Wins: 34
+      Losses: 1
+      WeightClass: Lightweight
       EnemyController: {fileID: 1234083719198371793, guid: 29bc517f72c87694da0ec488672dd46f, type: 3}
     - EnemyName: 'Ricky Hatton '
-      EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
+      EnemySprite: {fileID: 21300000, guid: 43939a5884c747c41b9a054d1006fda3, type: 3}
       Wins: 45
-      Losses: 5
-      WeightClass: 
+      Losses: 1
+      WeightClass: Light Welterweight
       EnemyController: {fileID: 4070661593419836309, guid: 4584c4d5177dd88479949178ecf9a1ee, type: 3}
     - EnemyName: 'Miguel Cotto '
-      EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 0
-      Losses: 0
-      WeightClass: 
+      EnemySprite: {fileID: 21300000, guid: 07b1a652613ad4143b41eb49e164b7bb, type: 3}
+      Wins: 34
+      Losses: 1
+      WeightClass: Welterweight
       EnemyController: {fileID: 7252555457025503942, guid: a36fd2b2b68d1f94bba2819b38eff86e, type: 3}
     - EnemyName: 'Antonio Margarito '
-      EnemySprite: {fileID: 21300000, guid: 3d42b5ef33689af43a3e6dccb8b02805, type: 3}
-      Wins: 0
-      Losses: 0
-      WeightClass: 
+      EnemySprite: {fileID: 21300000, guid: 7e3643dc0166521409d81fe685eb0332, type: 3}
+      Wins: 38
+      Losses: 6
+      WeightClass: Super Welterweight
       EnemyController: {fileID: 3740023262033215020, guid: 412619e3d0fe0f14eb8fff2115c2c51f, type: 3}

@@ -130,6 +130,12 @@ namespace New.Controllers
             Get.GameManager.StartRound();
         }
 
+        public void SetKnockdownText(bool isKnockout)
+        {
+            _countDownText.gameObject.SetActive(true);
+            _countDownText.text = isKnockout ? "K.O" : "Downed";
+        }
+
         public void SetTime(int time)
         {
             _timeText.text = time.ToString();

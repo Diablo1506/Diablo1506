@@ -56,4 +56,4 @@ MonoBehaviour:
       EnergyRestoreTime: 1
       EnergyRestored: 30
   _highestDifficultyIDUnlocked: 0
-  <CurrentDifficultyID>k__BackingField: 7
+  <CurrentDifficultyID>k__BackingField: 0

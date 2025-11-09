@@ -21,6 +21,6 @@ MonoBehaviour:
     - HasAchieved: 0
       Title: Champion!
       Description: Defeated the last opponent
-    - HasAchieved: 1
+    - HasAchieved: 0
       Title: First steps
       Description: Completed the basic tutorial

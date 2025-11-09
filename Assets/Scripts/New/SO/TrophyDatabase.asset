@@ -16,24 +16,57 @@ MonoBehaviour:
     m_Keys: 0000000001000000020000000300000004000000050000000600000007000000
     m_Values:
     - DescriptionPageList:
-      - pac
-      - quaio
-      - manny
-      Defeated: 1
+      - WBC Flyweight Title (112 lbs)
+      - Chatchai Sasakul fought Manny Pacquiao on December 4, 1998, in Phuket, Thailand.
+      - 'Manny Pacquiao won by 8th-round KO to capture his first world title, the
+        WBC Flyweight Championship, starting his legendary multi-division career. '
+      Defeated: 0
     - DescriptionPageList:
-      - test11
-      - test22
-      - test333
-      Defeated: 1
-    - DescriptionPageList: []
-      Defeated: 1
-    - DescriptionPageList: []
+      - IBF Super Bantamweight Title (122 lbs)
+      - Lehlohonolo Ledwaba fought Manny Pacquiao on June 23, 2001, at the MGM Grand
+        in Las Vegas, USA.
+      - 'Manny Pacquiao won by 6th-round TKO to claim the IBF Super Bantamweight
+        title, his second world championship in a new division. '
       Defeated: 0
-    - DescriptionPageList: []
+    - DescriptionPageList:
+      - The Ring Featherweight Title (126 lbs)
+      - Manny Pacquiao vs. Marco Antonio Barrera took place on November 15, 2003,
+        in San Antonio, Texas, USA.
+      - 'Manny Pacquiao won by 11th-round TKO against Marco Antonio Barrera to capture
+        The Ring Featherweight title, proving himself as an elite boxer. '
       Defeated: 0
-    - DescriptionPageList: []
+    - DescriptionPageList:
+      - WBC Super Featherweight Title (130 lbs)
+      - "Juan Manuel M\xE1rquez fought Manny Pacquiao on March 15, 2008, at the Mandalay
+        Bay Resort & Casino in Las Vegas, USA."
+      - "Pacquiao dropped M\xE1rquez in round 3 and won the WBC Super Featherweight
+        title, his fourth world championship. "
       Defeated: 0
-    - DescriptionPageList: []
+    - DescriptionPageList:
+      - WBC Lightweight Title (135 lbs)
+      - "David D\xEDaz fought Manny Pacquiao on June 28, 2008, at the Mandalay Bay
+        Events Center in Las Vegas, USA."
+      - 'Manny Pacquiao won by 9th-round TKO to claim the WBC Lightweight title,
+        his fifth world championship in another division. '
       Defeated: 0
-    - DescriptionPageList: []
+    - DescriptionPageList:
+      - 'The Ring and IBO Light Welterweight Titles (140 lbs) '
+      - Ricky Hatton fought Manny Pacquiao on May 2, 2009, at the MGM Grand in Las
+        Vegas, USA.
+      - 'Manny Pacquiao won by 2nd-round KO to capture The Ring and IBO Light Welterweight
+        titles, his sixth world championship in another division. '
+      Defeated: 0
+    - DescriptionPageList:
+      - 'WBO Welterweight Title (147 lbs) '
+      - Miguel Cotto fought Manny Pacquiao on November 14, 2009, at the MGM Grand
+        in Las Vegas, USA.
+      - 'Manny Pacquiao won by 12th-round TKO to capture the WBO Welterweight title,
+        his seventh world championship in another division. '
+      Defeated: 0
+    - DescriptionPageList:
+      - WBC Super Welterweight Title (154 lbs)
+      - Antonio Margarito fought Manny Pacquiao on November 13, 2010, at Cowboys
+        Stadium in Arlington,
+      - 'Manny Pacquiao won by unanimous decision to claim the WBC Super Welterweight
+        title, becoming the only boxer in history to win world titles in eight divisions. '
       Defeated: 0

@@ -101,22 +101,34 @@ namespace New.Managers
                 Debug.Log($"#{GetType()}: PLAYER LOST");
                 _winDataDict[EnemyController] += 1;
                 gameUIController.WinRoundCount.AddEnemyWin(_winDataDict[EnemyController]);
+                gameUIController.SetKnockdownText(false);
             }
             else
             {
                 Debug.Log($"#{GetType()}: ENEMY LOST");
                 _winDataDict[PlayerController] += 1;
                 gameUIController.WinRoundCount.AddPlayerWin(_winDataDict[PlayerController]);
+                gameUIController.SetKnockdownText(false);
+
             }
 
             if (_winDataDict[EnemyController] == 2 || _winDataDict[PlayerController] == 2)
             {
                 gameUIController.CurrentRound = 0;
-                EndGame();
+
+                StartCoroutine(IEKnockoutDelay(gameUIController));
                 return;
             }
 
             StartCoroutine(IENextRound());
+        }
+
+        private IEnumerator IEKnockoutDelay(GameUIController gameUIController)
+        {
+            gameUIController.SetKnockdownText(true);
+
+            yield return new WaitForSeconds(3f);
+            EndGame();
         }
 
         public void StartTraining()
