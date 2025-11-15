@@ -72,6 +72,8 @@ namespace New.Gameplay
 
                     Get.TrophyDatabase.SetDefeated(value, true);
                 }
+                
+                Get.UIManager.ShowSingle(PanelType.PREFIGHT);
             }
             else
             {
@@ -95,10 +97,11 @@ namespace New.Gameplay
                     achievementData.HasAchieved = false;
                 }
 
+                Get.UIManager.ShowSingle(PanelType.PREFIGHT);
+                Get.UIManager.GetPanel<PreFightMenuController>(PanelType.PREFIGHT).OnTrainButtonClicked();
             }
 
             Get.PlayerPrefManager.CurrentSaveSlotID = _saveSlotID;
-            Get.UIManager.ShowSingle(PanelType.PREFIGHT);
         }
 
         public void OnClearButtonClicked()
